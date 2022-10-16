@@ -20,7 +20,7 @@ final class RouteServiceProvider extends ServiceProvider
 
     public function mapRoutes()
     {
-        Route::prefix('api/job-portal')
+        Route::prefix('api/job-portal/candidates')
             ->group(base_path('src/JobPortal/Candidate/Infrastructure/Routes/Api.php'));
     }
 }

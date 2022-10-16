@@ -4,6 +4,7 @@ namespace Src\JobPortal\Candidate\Infrastructure\Services;
 
 
 use Carbon\Laravel\ServiceProvider;
+use Src\JobPortal\Candidate\Application\Create\CandidateCreateUseCase;
 use Src\JobPortal\Candidate\Application\Delete\CandidateDeleteByIdUseCase;
 use Src\JobPortal\Candidate\Application\Search\CandidateSearchAllUseCase;
 use Src\JobPortal\Candidate\Domain\Contracts\CandidateRepositoryContract;
@@ -24,6 +25,10 @@ final class DependencyServiceProvider extends ServiceProvider
             ->give(CandidateRepository::class);
 
         $this->app->when(CandidateDeleteByIdUseCase::class)
+            ->needs(CandidateRepositoryContract::class)
+            ->give(CandidateRepository::class);
+
+        $this->app->when(CandidateCreateUseCase::class)
             ->needs(CandidateRepositoryContract::class)
             ->give(CandidateRepository::class);
     }

@@ -3,6 +3,7 @@
 namespace Src\JobPortal\Candidate\Infrastructure\Repositories\Eloquent;
 
 use Src\JobPortal\Candidate\Domain\Contracts\CandidateRepositoryContract;
+use Src\JobPortal\Candidate\Domain\Requests\Create\CandidateCreateRequest;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
 use Src\JobPortal\Candidate\Domain\ValueObjects\GroupedObjects\CandidateStoreRequest;
 
@@ -23,5 +24,12 @@ final class CandidateRepository implements CandidateRepositoryContract
     public function deleteById(CandidateId $candidateId): bool
     {
         return $this->model->where('id', $candidateId->value())->delete();
+    }
+
+    public function create(CandidateCreateRequest $candidateCreateRequest): ?int
+    {
+        $response = $this->model->create($candidateCreateRequest->handler());
+
+        return ($response) ? $response->id : null;
     }
 }

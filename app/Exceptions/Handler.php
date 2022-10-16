@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Src\JobPortal\_Shared\Domain\Exceptions\CustomException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -46,5 +47,11 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    public function render($request, Throwable $e)
+    {
+        $c = new CustomException($e);
+        return response()->json($c->toException());
     }
 }

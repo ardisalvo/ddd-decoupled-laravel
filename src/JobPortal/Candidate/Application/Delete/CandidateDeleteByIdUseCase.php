@@ -25,13 +25,15 @@ final class CandidateDeleteByIdUseCase
 
         return [
             'message' => 'Candidate deleted',
-            'candidate_data' => $candidateId,
+            'candidate_data' => $candidateId->value(),
         ];
     }
 
     private function exception()
     {
-        throw new CandidateException("The candidate cannot be deleted, please check if it exists or if the ID is correct.",
-            500);
+        throw new CandidateException(
+            "The candidate cannot be deleted, please check if it exists or if the ID is correct.",
+            500
+        );
     }
 }
