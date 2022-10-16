@@ -3,6 +3,7 @@
 namespace Src\JobPortal\Candidate\Infrastructure\Repositories\Eloquent;
 
 use Src\JobPortal\Candidate\Domain\Contracts\CandidateRepositoryContract;
+use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
 use Src\JobPortal\Candidate\Domain\ValueObjects\GroupedObjects\CandidateStoreRequest;
 
 final class CandidateRepository implements CandidateRepositoryContract
@@ -17,5 +18,10 @@ final class CandidateRepository implements CandidateRepositoryContract
     public function findAll(): array
     {
         return $this->model->all()->toArray();
+    }
+
+    public function deleteById(CandidateId $candidateId): bool
+    {
+        return $this->model->where('id', $candidateId->value())->delete();
     }
 }
