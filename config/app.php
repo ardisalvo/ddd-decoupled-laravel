@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool)env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -195,6 +195,13 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+        |--------------------------------------------------------------------------
+        | DDD JobPortal
+        |--------------------------------------------------------------------------
+        */
+        Src\JobPortal\Candidate\Infrastructure\Services\RouteServiceProvider::class,
+        Src\JobPortal\Candidate\Infrastructure\Services\DependencyServiceProvider::class,
     ],
 
     /*
@@ -211,5 +218,4 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
-
 ];
