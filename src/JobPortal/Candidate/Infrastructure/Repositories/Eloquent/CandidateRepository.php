@@ -4,6 +4,7 @@ namespace Src\JobPortal\Candidate\Infrastructure\Repositories\Eloquent;
 
 use Src\JobPortal\Candidate\Domain\Contracts\CandidateRepositoryContract;
 use Src\JobPortal\Candidate\Domain\Requests\Create\CandidateCreateRequest;
+use Src\JobPortal\Candidate\Domain\Requests\Update\CandidateUpdateRequest;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
 use Src\JobPortal\Candidate\Domain\ValueObjects\GroupedObjects\CandidateStoreRequest;
 
@@ -31,5 +32,13 @@ final class CandidateRepository implements CandidateRepositoryContract
         $response = $this->model->create($candidateCreateRequest->handler());
 
         return ($response) ? $response->id : null;
+    }
+
+    public function update(CandidateId $candidateId, CandidateUpdateRequest $candidateUpdateRequest): ?int
+    {
+        $response = $this->model->where('id', $candidateId->value())
+            ->update($candidateUpdateRequest->value());
+
+        return ($response) ? $candidateId->value() : null;
     }
 }
