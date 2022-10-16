@@ -22,6 +22,6 @@ final class CandidateDeleteByIdController
         $candidateId = $request->get('candidateId');
         $candidateId = new CandidateId($candidateId);
 
-        $this->deleteByIdUseCase->__invoke($candidateId);
+        return $this->deleteByIdUseCase->__invoke($candidateId);
     }
 }
