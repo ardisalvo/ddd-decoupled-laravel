@@ -1,4 +1,4 @@
-<?php
+CourseName.php<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,9 +17,9 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name', 45);
             $table->string('sector', 150);
-            $table->boolean('status');
-            $table->timestamps();
-            $table->softDeletes();
+            //$table->boolean('status');
+            //$table->timestamps();
+            //$table->softDeletes();
         });
     }
 
