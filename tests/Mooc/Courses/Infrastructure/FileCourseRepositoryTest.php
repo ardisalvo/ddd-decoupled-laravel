@@ -22,6 +22,8 @@ final class FileCourseRepositoryTest extends TestCase
         $course     = CourseMother::random();
 
         $repository->save($course);
+
+        $this->assertTrue(true);
     }
 
     /** test */

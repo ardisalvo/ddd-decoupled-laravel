@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Src\Mooc\Courses\Infrastructure;
 
@@ -15,13 +15,13 @@ final class FileCourseRepository implements CourseRepository
 {
 
 
-    private const FILE_PATH = __DIR__ . '/courses';
+    private const FILE_PATH = __DIR__.'/courses';
 
     public function save(Course $course): void
     {
-        $result= Candidate::create([
-           'first_name' => 'A',
-           'last_name' => 'B',
+        $result = Candidate::create([
+            'first_name' => 'A',
+            'last_name' => 'B',
             'phone' => '622622622',
             'email' => 'a@a.com'
         ]);
