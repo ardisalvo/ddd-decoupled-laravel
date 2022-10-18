@@ -8,7 +8,7 @@ use Src\JobPortal\Company\Domain\Company;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanySector;
-use Src\JobPortal\Company\Infrastructure\Controllers\Create\CreateCompanyRequest;
+use Src\JobPortal\Company\Infrastructure\Controllers\Create\CompanyCreatorRequest;
 
 final class CompanyMother
 {
@@ -17,7 +17,7 @@ final class CompanyMother
         return new Company($id, $name, $sector);
     }
 
-    public static function fromRequest(CreateCompanyRequest $request): Company
+    public static function fromRequest(CompanyCreatorRequest $request): Company
     {
         return self::create(
             CompanyIdMother::create($request->id()),

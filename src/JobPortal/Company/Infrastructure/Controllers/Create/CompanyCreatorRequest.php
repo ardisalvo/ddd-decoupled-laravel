@@ -7,11 +7,11 @@ use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanySector;
 
-final class CreateCompanyRequest
+final class CompanyCreatorRequest
 {
-    private $id;
-    private $name;
-    private $duration;
+    private CompanyId $id;
+    private CompanyName $name;
+    private CompanySector $duration;
 
     public function __construct(Request $request)
     {

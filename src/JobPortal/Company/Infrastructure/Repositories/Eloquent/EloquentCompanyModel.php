@@ -2,14 +2,16 @@
 
 namespace Src\JobPortal\Company\Infrastructure\Repositories\Eloquent;
 
-class EloquentCompanyModel extends \App\Models\Company
+use Illuminate\Database\Eloquent\Model;
+
+class EloquentCompanyModel extends Model
 {
     protected $table = 'companies';
+
+    public $timestamps = false;
 
     protected $fillable = [
         'name',
         'sector',
     ];
-
-    public $timestamps = false;
 }

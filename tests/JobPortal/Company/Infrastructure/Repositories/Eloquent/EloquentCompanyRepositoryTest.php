@@ -13,9 +13,10 @@ class EloquentCompanyRepositoryTest extends TestCase
     public function it_should_save_a_company(): void
     {
         $repository = new EloquentCompanyRepository();
-        $course = CompanyMother::random();
 
-        $repository->save($course);
+        $company = CompanyMother::random();
+
+        $repository->save($company);
 
         $this->assertTrue(true);
     }
