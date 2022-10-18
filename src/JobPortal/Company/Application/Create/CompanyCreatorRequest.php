@@ -12,7 +12,7 @@ final class CompanyCreatorRequest
 {
     private CompanyId $id;
     private CompanyName $name;
-    private CompanySector $duration;
+    private CompanySector $sector;
 
     public function __construct(Request $request)
     {
@@ -20,21 +20,21 @@ final class CompanyCreatorRequest
 
         $this->id = new CompanyId($requestId);
         $this->name = new CompanyName($request->get('name'));
-        $this->duration = new CompanySector($request->get('duration'));
+        $this->sector = new CompanySector($request->get('duration'));
     }
 
-    public function id(): string
+    public function id(): CompanyId
     {
         return $this->id;
     }
 
-    public function name(): string
+    public function name(): CompanyName
     {
         return $this->name;
     }
 
-    public function duration(): string
+    public function sector(): CompanySector
     {
-        return $this->duration;
+        return $this->sector;
     }
 }
