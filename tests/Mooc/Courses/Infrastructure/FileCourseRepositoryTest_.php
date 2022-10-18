@@ -11,11 +11,11 @@ use Tests\Mooc\Courses\Application\Domain\CourseMother;
 use Tests\TestCase;
 
 
-final class FileCourseRepositoryTest extends TestCase
+final class FileCourseRepositoryTest_ extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    /** test */
     public function it_should_save_a_course(): void
     {
         $repository = new FileCourseRepository();

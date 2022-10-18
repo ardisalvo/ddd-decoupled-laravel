@@ -8,11 +8,11 @@ use Tests\JobPortal\Company\Application\Domain\CompanyIdMother;
 use Tests\JobPortal\Company\Application\Domain\CompanyMother;
 use Tests\TestCase;
 
-class FileCompanyRepositoryTest extends TestCase
+class FileCompanyRepositoryTest_ extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    /** test */
     public function it_should_save_a_company(): void
     {
         $repository = new FileCompanyRepository();

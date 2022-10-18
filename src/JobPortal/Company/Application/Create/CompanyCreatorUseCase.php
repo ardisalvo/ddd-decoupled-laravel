@@ -1,14 +1,15 @@
 <?php
 
-namespace Src\JobPortal\Company\Infrastructure\Controllers\Create;
+namespace Src\JobPortal\Company\Application\Create;
 
 use Src\JobPortal\Company\Domain\Company;
 use Src\JobPortal\Company\Domain\Contracts\CompanyRepositoryContract;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanySector;
+use Src\JobPortal\Company\Infrastructure\Controllers\Create\CreateCompanyRequest;
 
-final class CompanyCreator
+class CompanyCreatorUseCase
 {
     private $repository;
 
