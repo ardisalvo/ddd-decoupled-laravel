@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanySector;
+use Src\Shared\Domain\ValueObject\Uuid;
 
 final class CompanyCreatorRequest
 {
@@ -15,7 +16,9 @@ final class CompanyCreatorRequest
 
     public function __construct(Request $request)
     {
-        $this->id = new CompanyId($request->get('id') ?? 0);
+        $requestId = $request->get('id') ? : Uuid::random()->value();
+
+        $this->id = new CompanyId($requestId);
         $this->name = new CompanyName($request->get('name'));
         $this->duration = new CompanySector($request->get('duration'));
     }

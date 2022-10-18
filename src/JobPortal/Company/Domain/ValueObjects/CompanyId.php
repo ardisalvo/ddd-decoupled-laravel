@@ -2,8 +2,8 @@
 
 namespace Src\JobPortal\Company\Domain\ValueObjects;
 
-use Src\Shared\Domain\ValueObject\IntegerValueObject;
+use Src\Shared\Domain\ValueObject\Uuid;
 
-final class CompanyId extends IntegerValueObject
+final class CompanyId extends Uuid
 {
 }

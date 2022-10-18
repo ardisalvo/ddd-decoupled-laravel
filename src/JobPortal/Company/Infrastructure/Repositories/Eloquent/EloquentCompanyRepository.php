@@ -13,6 +13,7 @@ class EloquentCompanyRepository implements CompanyRepositoryContract
     public function save(Company $company): void
     {
         $result = EloquentCompanyModel::create([
+            'id' => $company->id()->value(),
             'name' => $company->name()->value(),
             'sector' => $company->sector()->value()
         ]);

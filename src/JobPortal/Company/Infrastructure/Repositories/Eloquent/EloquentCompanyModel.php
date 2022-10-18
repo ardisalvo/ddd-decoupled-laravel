@@ -11,6 +11,7 @@ class EloquentCompanyModel extends Model
     public $timestamps = false;
 
     protected $fillable = [
+        'id',
         'name',
         'sector',
     ];

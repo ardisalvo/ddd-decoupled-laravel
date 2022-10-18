@@ -1,25 +1,23 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace Src\Shared\Domain\ValueObject;
 
 abstract class IntegerValueObject
 {
     protected $value;
 
-    public function __construct(string $value)
+    public function __construct(int $value)
     {
         $this->value = $value;
     }
 
-    public function value(): string
+    public function value(): int
     {
         return $this->value;
     }
 
     public function __toString()
     {
-        return $this->value();
+        return (string)$this->value();
     }
 }

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('id')->primary();
             $table->string('name', 45);
             $table->string('sector', 150);
             //$table->boolean('status');
