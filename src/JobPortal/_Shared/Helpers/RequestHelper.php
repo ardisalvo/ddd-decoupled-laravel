@@ -6,15 +6,13 @@ trait RequestHelper
 {
     public function formatErrorRequestValidations(array $validators): string
     {
-        $message = "\n=============\n";
+        $validationsMessage = [];
 
-        array_walk($validators, function ($value) use (&$message) {
-            $message .= "=> ".$value."\n";
-        });
+        foreach($validators as $validator) {
+            $validationsMessage[] = $validator;
+        }
 
-        $message .= "============\n";
-
-        return $message;
+        return json_encode($validationsMessage);
     }
 }
 

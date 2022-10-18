@@ -44,14 +44,8 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        $this->reportable(function (Throwable $e) {
+        $this->reportable(function (CustomException $e) {
             //
         });
-    }
-
-    public function render($request, Throwable $e)
-    {
-        $c = new CustomException($e);
-        return response()->json($c->toException());
     }
 }

@@ -4,16 +4,27 @@ namespace Src\JobPortal\_Shared\Domain\Exceptions;
 
 class CustomException extends \Exception
 {
-    public function toException(): array
+
+    /**
+     * Report the exception.
+     *
+     * @return bool|null
+     */
+    public function report()
+    {
+        //
+    }
+
+    public function render($request)
     {
         $temporallyClass = new \ReflectionClass(get_class($this));
         $class = explode('\\', $temporallyClass->getName());
 
-        return [
+        return response([
             'status' => $this->getCode(),
             'error' => true,
             'class' => end($class),
             'message' => $this->getMessage(),
-        ];
+        ]);
     }
 }
