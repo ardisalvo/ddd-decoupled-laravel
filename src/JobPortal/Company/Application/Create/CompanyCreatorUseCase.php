@@ -7,7 +7,6 @@ use Src\JobPortal\Company\Domain\Contracts\CompanyRepositoryContract;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanySector;
-use Src\JobPortal\Company\Infrastructure\Controllers\Create\CompanyCreatorRequest;
 
 class CompanyCreatorUseCase
 {

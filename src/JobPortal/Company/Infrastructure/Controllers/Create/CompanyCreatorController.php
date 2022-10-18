@@ -2,6 +2,7 @@
 
 namespace Src\JobPortal\Company\Infrastructure\Controllers\Create;
 
+use Src\JobPortal\Company\Application\Create\CompanyCreatorRequest;
 use Src\JobPortal\Company\Application\Create\CompanyCreatorUseCase;
 
 final class CompanyCreatorController

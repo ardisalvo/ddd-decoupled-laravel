@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\JobPortal\Company\Infrastructure\Controllers\Create;
+namespace Src\JobPortal\Company\Application\Create;
 
 use Illuminate\Http\Request;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
