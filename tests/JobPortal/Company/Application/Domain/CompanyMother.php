@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\JobPortal\Company\Application\Domain;
 
-use Src\JobPortal\Company\Application\Create\CompanyCreatorRequest;
+use Src\JobPortal\Company\Application\Create\CompanyCreateRequest;
 use Src\JobPortal\Company\Domain\Company;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
@@ -17,7 +17,7 @@ final class CompanyMother
         return new Company($id, $name, $sector);
     }
 
-    public static function fromRequest(CompanyCreatorRequest $request): Company
+    public static function fromRequest(CompanyCreateRequest $request): Company
     {
         return self::create(
             CompanyIdMother::create($request->id()),

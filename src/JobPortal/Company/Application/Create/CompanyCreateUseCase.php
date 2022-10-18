@@ -5,7 +5,7 @@ namespace Src\JobPortal\Company\Application\Create;
 use Src\JobPortal\Company\Domain\Company;
 use Src\JobPortal\Company\Domain\Contracts\CompanyRepositoryContract;
 
-class CompanyCreatorUseCase
+class CompanyCreateUseCase
 {
     private $repository;
 
@@ -14,7 +14,7 @@ class CompanyCreatorUseCase
         $this->repository = $repository;
     }
 
-    public function __invoke(CompanyCreatorRequest $request)
+    public function __invoke(CompanyCreateRequest $request)
     {
         $company = new Company($request->id(), $request->name(), $request->sector());
 

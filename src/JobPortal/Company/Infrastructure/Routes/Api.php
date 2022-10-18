@@ -7,12 +7,12 @@ use Src\JobPortal\Candidate\Infrastructure\Controllers\Create\CandidateCreateCon
 use Src\JobPortal\Candidate\Infrastructure\Controllers\Delete\CandidateDeleteByIdController;
 use Src\JobPortal\Candidate\Infrastructure\Controllers\Search\CandidateSearchAllController;
 use Src\JobPortal\Candidate\Infrastructure\Controllers\Update\CandidateUpdateController;
-use Src\JobPortal\Company\Infrastructure\Controllers\Create\CompanyCreatorController;
+use Src\JobPortal\Company\Infrastructure\Controllers\Create\CompanyCreateController;
 
 Route::get('/', function () {
     dd('Welcome to JobPortal Project DDD. -- Company');
 });
 
 Route::get('/search/all', CandidateSearchAllController::class);
-Route::post('/create', CompanyCreatorController::class);
+Route::post('/create', CompanyCreateController::class);
 

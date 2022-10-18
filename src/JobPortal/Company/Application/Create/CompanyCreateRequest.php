@@ -8,7 +8,7 @@ use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanySector;
 use Src\Shared\Domain\ValueObject\Uuid;
 
-final class CompanyCreatorRequest
+final class CompanyCreateRequest
 {
     private CompanyId $id;
     private CompanyName $name;

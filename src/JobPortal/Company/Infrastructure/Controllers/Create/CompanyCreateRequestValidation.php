@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Src\JobPortal\_Shared\Helpers\RequestHelper;
 use Src\JobPortal\Candidate\Domain\Exceptions\CandidateException;
 
-class CompanyCreatorRequestValidation extends FormRequest
+class CompanyCreateRequestValidation extends FormRequest
 {
     use RequestHelper;
 
