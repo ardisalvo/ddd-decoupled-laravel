@@ -9,13 +9,17 @@ use Tests\Shared\Domain\WordMother;
 
 final class CompanyNameMother
 {
-    public static function create(string $value): CompanyName
+    public static function create(CompanyName $value): CompanyName
     {
-        return new CompanyName($value);
+        return $value;
     }
 
     public static function random(): CompanyName
     {
-        return self::create(WordMother::random());
+        return self::create(
+            new CompanyName(
+                WordMother::random()
+            )
+        );
     }
 }

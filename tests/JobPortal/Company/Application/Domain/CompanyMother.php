@@ -28,6 +28,9 @@ final class CompanyMother
 
     public static function random(): Company
     {
-        return self::create(CompanyIdMother::random(), CompanyNameMother::random(), CompanySectorMother::random());
+        return self::create(
+            CompanyIdMother::random(),
+            CompanyNameMother::random(),
+            CompanySectorMother::random());
     }
 }

@@ -7,13 +7,17 @@ use Tests\Shared\Domain\UuidMother;
 
 final class CompanyIdMother
 {
-    public static function create(string $value): CompanyId
+    public static function create(CompanyId $value): CompanyId
     {
-        return new CompanyId($value);
+        return $value;
     }
 
     public static function random(): CompanyId
     {
-        return self::create(UuidMother::random());
+        return self::create(
+            new CompanyId(
+                UuidMother::random()
+            )
+        );
     }
 }

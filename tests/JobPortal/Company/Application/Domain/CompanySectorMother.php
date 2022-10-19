@@ -8,18 +8,20 @@ use Tests\Shared\Domain\RandomElementPicker;
 
 final class CompanySectorMother
 {
-    public static function create(string $value): CompanySector
+    public static function create(CompanySector $value): CompanySector
     {
-        return new CompanySector($value);
+        return $value;
     }
 
     public static function random(): CompanySector
     {
         return self::create(
-            sprintf(
-                '%s %s',
-                IntegerMother::random(),
-                RandomElementPicker::from('months', 'years', 'days', 'hours', 'minutes', 'seconds')
+            new CompanySector(
+                sprintf(
+                    '%s %s',
+                    IntegerMother::random(),
+                    RandomElementPicker::from('months', 'years', 'days', 'hours', 'minutes', 'seconds')
+                )
             )
         );
     }
