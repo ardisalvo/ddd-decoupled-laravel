@@ -31,7 +31,7 @@ class FileCompanyRepositoryTest_ extends TestCase
 
         $repository->create($company);
 
-        $this->assertEquals($company, $repository->search($company->id()));
+        $this->assertEquals($company, $repository->searchById($company->id()));
     }
 
     /** test */
@@ -39,6 +39,6 @@ class FileCompanyRepositoryTest_ extends TestCase
     {
         $repository = new FileCompanyRepository();
 
-        $this->assertNull($repository->search(CompanyIdMother::random()));
+        $this->assertNull($repository->searchById(CompanyIdMother::random()));
     }
 }

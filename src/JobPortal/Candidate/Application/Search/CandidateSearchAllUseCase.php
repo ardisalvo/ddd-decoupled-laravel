@@ -3,7 +3,7 @@
 namespace Src\JobPortal\Candidate\Application\Search;
 
 use Src\JobPortal\Candidate\Domain\Contracts\CandidateRepositoryContract;
-use Src\JobPortal\Candidate\Domain\Exceptions\CompanyException;
+use Src\JobPortal\Company\Domain\Exceptions\CompanyException;
 
 final class CandidateSearchAllUseCase
 {
@@ -14,9 +14,6 @@ final class CandidateSearchAllUseCase
         $this->repository = $candidateRepositoryContract;
     }
 
-    /**
-     * @return array[]
-     */
     public function __invoke(): array
     {
         $response = $this->repository->findAll();

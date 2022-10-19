@@ -8,7 +8,7 @@ use Src\JobPortal\Company\Domain\Contracts\CompanyRepositoryContract;
 
 class CompanyCreateUseCase
 {
-    private $repository;
+    private CompanyRepositoryContract $repository;
 
     public function __construct(CompanyRepositoryContract $repository)
     {
@@ -28,7 +28,7 @@ class CompanyCreateUseCase
         return response([
             'message' => 'Candidate successfully created.',
             'id' => $response->value(),
-        ]);
+        ], 200);
     }
 
     private function exception()

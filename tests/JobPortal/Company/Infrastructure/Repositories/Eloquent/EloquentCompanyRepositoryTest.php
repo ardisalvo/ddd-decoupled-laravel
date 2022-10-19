@@ -64,7 +64,6 @@ class EloquentCompanyRepositoryTest extends TestCase
                 'status' => CompanyStatusMother::random()->value(),
             ]);
             $validation = Validator::make($this->request->all(), $this->requestValidation->rules());
-
             $this->assertFalse($validation->fails());
 
             $company = new CompanyCreateRequest($this->request);
@@ -78,7 +77,7 @@ class EloquentCompanyRepositoryTest extends TestCase
     }
 
     /** @test */
-    public function it_should_create_specific_uuid_company_then_verify_by_uuid(): void
+    public function it_should_create_specific_uuid_company_then_verify_searching_uuid(): void
     {
         $this->initializeVariables();
 
@@ -102,9 +101,43 @@ class EloquentCompanyRepositoryTest extends TestCase
 
         $this->assertEquals(1, $this->repository->count());
 
-        $results = $this->repository->search(new CompanyId($this->staticUuid));
+        $results = $this->repository->searchById(new CompanyId($this->staticUuid));
 
         $this->assertEquals($this->staticUuid, $results->id()->value());
+    }
+
+
+    public function it_should_create_specific_uuid_company_then_delete_by_uuid(): void
+    {
+        $this->initializeVariables();
+
+        $this->request->replace([
+            'id' => $this->staticUuid,
+            'name' => CompanyNameMother::random()->value(),
+            'sector' => CompanySectorMother::random()->value(),
+            'status' => CompanyStatusMother::random()->value(),
+        ]);
+
+        $validation = Validator::make($this->request->all(), $this->requestValidation->rules());
+
+        $this->assertFalse($validation->fails());
+
+        $company = new CompanyCreateRequest($this->request);
+        $this->assertEquals(0, $this->repository->count());
+
+        $company = CompanyMother::fromRequest($company);
+
+        $this->repository->create($company);
+
+        $this->assertEquals(1, $this->repository->count());
+
+        $results = $this->repository->searchById(new CompanyId($this->staticUuid));
+
+        $this->assertEquals($this->staticUuid, $results->id()->value());
+
+        $this->repository->deleteById(new CompanyId($this->staticUuid));
+
+        $this->assertEquals(0, $this->repository->count());
     }
 
     /** test */

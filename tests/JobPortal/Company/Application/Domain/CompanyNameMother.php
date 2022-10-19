@@ -6,6 +6,7 @@ namespace Tests\JobPortal\Company\Application\Domain;
 
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
 use Tests\Shared\Domain\RandomElementPicker;
+use Tests\Shared\Domain\UuidMother;
 use Tests\Shared\Domain\WordMother;
 
 final class CompanyNameMother
@@ -20,10 +21,10 @@ final class CompanyNameMother
         return self::create(
             new CompanyName(
                 RandomElementPicker::from(
-                    'Google',
-                    'Glovo',
-                    'Uber',
-                    'Tesla',
+                    'Google-'.UuidMother::random(),
+                    'Glovo-'.UuidMother::random(),
+                    'Uber-'.UuidMother::random(),
+                    'Tesla-'.UuidMother::random(),
                 )
             )
         );

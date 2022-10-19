@@ -5,7 +5,7 @@ namespace Src\JobPortal\Company\Infrastructure\Controllers\Create;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Src\JobPortal\_Shared\Helpers\RequestHelper;
-use Src\JobPortal\Candidate\Domain\Exceptions\CompanyException;
+use Src\JobPortal\Company\Domain\Exceptions\CompanyException;
 
 class CompanyCreateRequestValidation extends FormRequest
 {
@@ -14,9 +14,9 @@ class CompanyCreateRequestValidation extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
+            'name' => 'unique:companies|required|string',
             'sector' => 'required|string',
-            'status' => 'int',
+            'status' => 'required|int',
         ];
     }
 
@@ -24,8 +24,9 @@ class CompanyCreateRequestValidation extends FormRequest
     {
         return [
             'name.required' => 'Company name is required.',
-            'sector.required' => 'Company Sector is required.',
-
+            'name.unique' => 'Company name is already in database.',
+            'status.unique' => 'Company status is already in database.',
+            'sector.unique' => 'Company sector is already in database.',
         ];
     }
 

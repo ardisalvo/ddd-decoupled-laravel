@@ -28,7 +28,7 @@ class EloquentCompanyRepository implements CompanyRepositoryContract
         return null;
     }
 
-    public function search(CompanyId $id): ?Company
+    public function searchById(CompanyId $id): ?Company
     {
         $model = EloquentCompanyModel::where('id', $id->value())->first();
 
@@ -52,5 +52,15 @@ class EloquentCompanyRepository implements CompanyRepositoryContract
     public function getAllIConvertedArray(): array
     {
         return EloquentCompanyModel::get()->toArray();
+    }
+
+    public function searchByName(CompanyName $name): ?Company
+    {
+        return EloquentCompanyModel::where('name', $name)->first();
+    }
+
+    public function deleteById(CompanyId $id): int
+    {
+        return EloquentCompanyModel::where('id', $id)->delete();
     }
 }
