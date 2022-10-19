@@ -14,8 +14,12 @@ final class Company
     private CompanySector $sector;
     private CompanyStatus $status;
 
-    public function __construct(CompanyId $id, CompanyName $name, CompanySector $sector, CompanyStatus $status)
-    {
+    public function __construct(
+        CompanyId $id,
+        CompanyName $name,
+        CompanySector $sector,
+        CompanyStatus $status
+    ) {
         $this->id = $id;
         $this->name = $name;
         $this->sector = $sector;
@@ -40,5 +44,9 @@ final class Company
     public function status(): CompanyStatus
     {
         return $this->status;
+    }
+
+    public function toArray(){
+        return (array)$this;
     }
 }

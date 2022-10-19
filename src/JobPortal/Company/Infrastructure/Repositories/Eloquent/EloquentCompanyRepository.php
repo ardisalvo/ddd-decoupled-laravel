@@ -54,9 +54,18 @@ class EloquentCompanyRepository implements CompanyRepositoryContract
         return EloquentCompanyModel::get()->toArray();
     }
 
-    public function searchByName(CompanyName $name): ?Company
+    public function searchByName(CompanyName $name): ?EloquentCompanyModel
     {
-        return EloquentCompanyModel::where('name', $name)->first();
+        $result = EloquentCompanyModel::where('name', $name)->first();
+return $result;
+        $company = new Company(
+            new CompanyId($result->id),
+            new CompanyName($result->name),
+            new CompanySector($result->sector),
+            new CompanyStatus($result->status),
+        );
+
+        return $company;
     }
 
     public function deleteById(CompanyId $id): int
