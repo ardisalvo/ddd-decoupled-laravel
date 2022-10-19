@@ -10,11 +10,12 @@ class EloquentCompanyModel extends Model
     protected $keyType = 'string';
     public $incrementing = false;
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = [
         'id',
         'name',
         'sector',
+        'status',
     ];
 }

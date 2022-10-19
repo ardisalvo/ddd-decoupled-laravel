@@ -17,10 +17,12 @@ final class CompanySectorMother
     {
         return self::create(
             new CompanySector(
-                sprintf(
-                    '%s %s',
-                    IntegerMother::random(),
-                    RandomElementPicker::from('months', 'years', 'days', 'hours', 'minutes', 'seconds')
+                RandomElementPicker::from(
+                    'Marketing and sales',
+                    'E-commerce',
+                    'Digital payments',
+                    'B2C e-commerce',
+                    'B2B e-commerce',
                 )
             )
         );

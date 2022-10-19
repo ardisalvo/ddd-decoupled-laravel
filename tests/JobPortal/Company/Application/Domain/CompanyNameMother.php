@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\JobPortal\Company\Application\Domain;
 
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
+use Tests\Shared\Domain\RandomElementPicker;
 use Tests\Shared\Domain\WordMother;
 
 final class CompanyNameMother
@@ -18,7 +19,12 @@ final class CompanyNameMother
     {
         return self::create(
             new CompanyName(
-                WordMother::random()
+                RandomElementPicker::from(
+                    'Google',
+                    'Glovo',
+                    'Uber',
+                    'Tesla',
+                )
             )
         );
     }

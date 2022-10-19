@@ -7,6 +7,10 @@ use Src\JobPortal\Company\Application\Create\CompanyCreateRequest;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
 use Src\JobPortal\Company\Infrastructure\Controllers\Create\CompanyCreateRequestValidation;
 use Src\JobPortal\Company\Infrastructure\Repositories\Eloquent\EloquentCompanyRepository;
+use Tests\JobPortal\Company\Application\Domain\CompanyIdMother;
+use Tests\JobPortal\Company\Application\Domain\CompanyNameMother;
+use Tests\JobPortal\Company\Application\Domain\CompanySectorMother;
+use Tests\JobPortal\Company\Application\Domain\CompanyStatusMother;
 use Tests\TestCase;
 use Tests\JobPortal\Company\Application\Domain\CompanyMother;
 use Illuminate\Support\Facades\Validator;
@@ -32,7 +36,7 @@ class EloquentCompanyRepositoryTest extends TestCase
     }
 
     /** @test */
-    public function it_should_save_a_random_company(): void
+    public function it_should_save_a_random_company_without_validate(): void
     {
         $this->initializeVariables();
 
@@ -53,7 +57,20 @@ class EloquentCompanyRepositoryTest extends TestCase
         $this->assertEquals(0, $this->repository->count());
 
         for ($x = 1; $x <= 10; $x++) {
-            $company = CompanyMother::random();
+            $this->request->replace([
+                'id' => CompanyIdMother::random()->value(),
+                'name' => CompanyNameMother::random()->value(),
+                'sector' => CompanySectorMother::random()->value(),
+                'status' => CompanyStatusMother::random()->value(),
+            ]);
+            $validation = Validator::make($this->request->all(), $this->requestValidation->rules());
+
+            $this->assertFalse($validation->fails());
+
+            $company = new CompanyCreateRequest($this->request);
+
+            $company = CompanyMother::fromRequest($company);
+
             $this->repository->save($company);
         }
 
@@ -61,14 +78,15 @@ class EloquentCompanyRepositoryTest extends TestCase
     }
 
     /** @test */
-    public function it_should_specific_name_company(): void
+    public function it_should_create_specific_uuid_company_then_verify_by_uuid(): void
     {
         $this->initializeVariables();
 
         $this->request->replace([
             'id' => $this->staticUuid,
-            'name' => 'Google',
-            'duration' => '1year'
+            'name' => CompanyNameMother::random()->value(),
+            'sector' => CompanySectorMother::random()->value(),
+            'status' => CompanyStatusMother::random()->value(),
         ]);
 
         $validation = Validator::make($this->request->all(), $this->requestValidation->rules());
@@ -89,15 +107,14 @@ class EloquentCompanyRepositoryTest extends TestCase
         $this->assertEquals($this->staticUuid, $results->id()->value());
     }
 
-    /** @test */
-    public function it_should_fail_by_missing_params(): void
+    /** test */
+    public function it_should_fail_create_because_missing_params(): void
     {
         $this->initializeVariables();
 
         $this->request->replace([
-            'id' => $this->staticUuid,
-            //'name' => 'Google',
-            'duration' => '1year'
+            'id' => CompanyIdMother::random(),
+            'name' => CompanyNameMother::random(),
         ]);
 
         $validation = Validator::make($this->request->all(), $this->requestValidation->rules());

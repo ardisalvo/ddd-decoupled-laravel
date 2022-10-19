@@ -17,9 +17,9 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('name', 45);
             $table->string('sector', 150);
-            //$table->boolean('status');
-            //$table->timestamps();
-            //$table->softDeletes();
+            $table->boolean('status');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -16,7 +16,7 @@ class CompanyCreateUseCase
 
     public function __invoke(CompanyCreateRequest $request)
     {
-        $company = new Company($request->id(), $request->name(), $request->sector());
+        $company = new Company($request->id(), $request->name(), $request->sector(), $request->status());
 
         $this->repository->save($company);
     }

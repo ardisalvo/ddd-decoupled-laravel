@@ -15,7 +15,8 @@ class CompanyCreateRequestValidation extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'duration' => 'required|string',
+            'sector' => 'required|string',
+            'status' => 'int',
         ];
     }
 
@@ -23,7 +24,7 @@ class CompanyCreateRequestValidation extends FormRequest
     {
         return [
             'name.required' => 'Company name is required.',
-            'duration.required' => 'Company Duration is required.',
+            'sector.required' => 'Company Sector is required.',
 
         ];
     }

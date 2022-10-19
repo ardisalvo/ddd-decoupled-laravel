@@ -7,6 +7,7 @@ use Src\JobPortal\Company\Domain\Contracts\CompanyRepositoryContract;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanySector;
+use Src\JobPortal\Company\Domain\ValueObjects\CompanyStatus;
 
 class EloquentCompanyRepository implements CompanyRepositoryContract
 {
@@ -16,7 +17,8 @@ class EloquentCompanyRepository implements CompanyRepositoryContract
         $result = EloquentCompanyModel::create([
             'id' => $company->id()->value(),
             'name' => $company->name()->value(),
-            'sector' => $company->sector()->value()
+            'sector' => $company->sector()->value(),
+            'status' => $company->status()->value(),
         ]);
     }
 
@@ -31,7 +33,8 @@ class EloquentCompanyRepository implements CompanyRepositoryContract
         return new Company(
             new CompanyId($model->id),
             new CompanyName($model->name),
-            new CompanySector($model->sector)
+            new CompanySector($model->sector),
+            new CompanyStatus($model->status),
         );
     }
 

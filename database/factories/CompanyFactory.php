@@ -20,7 +20,7 @@ class CompanyFactory extends Factory
         return [
             'name' => fake()->company(),
             'sector' => fake()->sentence(),
-            //'status' => fake()->boolean(),
+            'status' => fake()->boolean(),
         ];
     }
 }
