@@ -18,7 +18,7 @@ class FileCompanyRepositoryTest_ extends TestCase
         $repository = new FileCompanyRepository();
         $course = CompanyMother::random();
 
-        $repository->save($course);
+        $repository->create($course);
 
         $this->assertTrue(true);
     }
@@ -29,7 +29,7 @@ class FileCompanyRepositoryTest_ extends TestCase
         $repository = new FileCompanyRepository();
         $company = CompanyMother::random();
 
-        $repository->save($company);
+        $repository->create($company);
 
         $this->assertEquals($company, $repository->search($company->id()));
     }

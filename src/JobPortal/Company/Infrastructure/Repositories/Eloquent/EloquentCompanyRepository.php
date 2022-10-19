@@ -12,7 +12,7 @@ use Src\JobPortal\Company\Domain\ValueObjects\CompanyStatus;
 class EloquentCompanyRepository implements CompanyRepositoryContract
 {
 
-    public function save(Company $company): void
+    public function create(Company $company): CompanyId|null
     {
         $result = EloquentCompanyModel::create([
             'id' => $company->id()->value(),
@@ -20,6 +20,12 @@ class EloquentCompanyRepository implements CompanyRepositoryContract
             'sector' => $company->sector()->value(),
             'status' => $company->status()->value(),
         ]);
+
+        if ($result) {
+            return new CompanyId($result->id);
+        }
+
+        return null;
     }
 
     public function search(CompanyId $id): ?Company

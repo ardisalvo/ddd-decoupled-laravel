@@ -3,7 +3,7 @@
 namespace Src\JobPortal\Candidate\Application\Create;
 
 use Src\JobPortal\Candidate\Domain\Contracts\CandidateRepositoryContract;
-use Src\JobPortal\Candidate\Domain\Exceptions\CandidateException;
+use Src\JobPortal\Candidate\Domain\Exceptions\CompanyException;
 use Src\JobPortal\Candidate\Domain\Requests\Create\CandidateCreateRequest;
 
 class CandidateCreateUseCase
@@ -32,6 +32,6 @@ class CandidateCreateUseCase
 
     private function exception()
     {
-        throw new CandidateException("Candidate cant be created", 500);
+        throw new CompanyException("Candidate cant be created", 500);
     }
 }

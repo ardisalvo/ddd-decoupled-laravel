@@ -2,6 +2,7 @@
 
 namespace Src\JobPortal\Company\Application\Create;
 
+use Src\JobPortal\Company\Domain\Exceptions\CompanyException;
 use Src\JobPortal\Company\Domain\Company;
 use Src\JobPortal\Company\Domain\Contracts\CompanyRepositoryContract;
 
@@ -18,6 +19,20 @@ class CompanyCreateUseCase
     {
         $company = new Company($request->id(), $request->name(), $request->sector(), $request->status());
 
-        $this->repository->save($company);
+        $response = $this->repository->create($company);
+
+        if (!$response) {
+            $this->exception();
+        }
+
+        return response([
+            'message' => 'Candidate successfully created.',
+            'id' => $response->value(),
+        ]);
+    }
+
+    private function exception()
+    {
+        throw new CompanyException("Company cant be created", 500);
     }
 }

@@ -11,7 +11,7 @@ final class FileCompanyRepository implements CompanyRepositoryContract
 {
     private const FILE_PATH = __DIR__.'/files/companies';
 
-    public function save(Company $company): void
+    public function create(Company $company): void
     {
         $result = Candidate::create([
             'first_name' => 'A',

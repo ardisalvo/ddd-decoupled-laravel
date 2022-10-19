@@ -18,6 +18,6 @@ final class CompanyCreateController
     {
         $request = new CompanyCreateRequest($request);
 
-        $this->useCase->__invoke($request);
+        return $this->useCase->__invoke($request);
     }
 }

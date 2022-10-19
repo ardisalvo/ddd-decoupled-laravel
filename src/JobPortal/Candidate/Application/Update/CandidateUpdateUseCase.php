@@ -3,7 +3,7 @@
 namespace Src\JobPortal\Candidate\Application\Update;
 
 use Src\JobPortal\Candidate\Domain\Contracts\CandidateRepositoryContract;
-use Src\JobPortal\Candidate\Domain\Exceptions\CandidateException;
+use Src\JobPortal\Candidate\Domain\Exceptions\CompanyException;
 use Src\JobPortal\Candidate\Domain\Requests\Create\CandidateCreateRequest;
 use Src\JobPortal\Candidate\Domain\Requests\Update\CandidateUpdateRequest;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
@@ -42,6 +42,6 @@ class CandidateUpdateUseCase
 
     private function exception()
     {
-        throw new CandidateException("Candidate cant be updated", 500);
+        throw new CompanyException("Candidate cant be updated", 500);
     }
 }

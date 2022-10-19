@@ -3,7 +3,7 @@
 namespace Src\JobPortal\Candidate\Application\Search;
 
 use Src\JobPortal\Candidate\Domain\Contracts\CandidateRepositoryContract;
-use Src\JobPortal\Candidate\Domain\Exceptions\CandidateException;
+use Src\JobPortal\Candidate\Domain\Exceptions\CompanyException;
 
 final class CandidateSearchAllUseCase
 {
@@ -33,6 +33,6 @@ final class CandidateSearchAllUseCase
 
     private function exception()
     {
-        throw new CandidateException("There are no candidates in the database.", 500);
+        throw new CompanyException("There are no candidates in the database.", 500);
     }
 }

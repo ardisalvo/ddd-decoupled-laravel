@@ -44,7 +44,7 @@ class EloquentCompanyRepositoryTest extends TestCase
 
         $company = CompanyMother::random();
 
-        $this->repository->save($company);
+        $this->repository->create($company);
 
         $this->assertEquals(1, $this->repository->count());
     }
@@ -71,7 +71,7 @@ class EloquentCompanyRepositoryTest extends TestCase
 
             $company = CompanyMother::fromRequest($company);
 
-            $this->repository->save($company);
+            $this->repository->create($company);
         }
 
         $this->assertEquals(10, $this->repository->count());
@@ -98,7 +98,7 @@ class EloquentCompanyRepositoryTest extends TestCase
 
         $company = CompanyMother::fromRequest($company);
 
-        $this->repository->save($company);
+        $this->repository->create($company);
 
         $this->assertEquals(1, $this->repository->count());
 

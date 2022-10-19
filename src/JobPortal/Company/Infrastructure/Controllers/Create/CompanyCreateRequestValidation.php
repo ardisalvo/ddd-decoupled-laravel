@@ -5,7 +5,7 @@ namespace Src\JobPortal\Company\Infrastructure\Controllers\Create;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Src\JobPortal\_Shared\Helpers\RequestHelper;
-use Src\JobPortal\Candidate\Domain\Exceptions\CandidateException;
+use Src\JobPortal\Candidate\Domain\Exceptions\CompanyException;
 
 class CompanyCreateRequestValidation extends FormRequest
 {
@@ -31,6 +31,6 @@ class CompanyCreateRequestValidation extends FormRequest
 
     public function failedValidation(Validator $validator)
     {
-        throw new CandidateException($this->formatErrorRequestValidations($validator->errors()->all()), 400);
+        throw new CompanyException($this->formatErrorRequestValidations($validator->errors()->all()), 400);
     }
 }

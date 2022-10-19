@@ -3,7 +3,7 @@
 namespace Src\JobPortal\Candidate\Application\Delete;
 
 use Src\JobPortal\Candidate\Domain\Contracts\CandidateRepositoryContract;
-use Src\JobPortal\Candidate\Domain\Exceptions\CandidateException;
+use Src\JobPortal\Candidate\Domain\Exceptions\CompanyException;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
 
 final class CandidateDeleteByIdUseCase
@@ -31,7 +31,7 @@ final class CandidateDeleteByIdUseCase
 
     private function exception()
     {
-        throw new CandidateException(
+        throw new CompanyException(
             "The candidate cannot be deleted, please check if it exists or if the ID is correct.",
             500
         );

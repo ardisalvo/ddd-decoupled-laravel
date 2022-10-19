@@ -9,7 +9,7 @@ use Src\JobPortal\Company\Infrastructure\Repositories\Eloquent\EloquentCompanyMo
 
 interface CompanyRepositoryContract
 {
-    public function save(Company $company): void;
+    public function create(Company $company): CompanyId|null;
 
     public function search(CompanyId $id): ?Company;
 
