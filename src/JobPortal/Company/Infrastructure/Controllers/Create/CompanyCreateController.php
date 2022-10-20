@@ -4,6 +4,7 @@ namespace Src\JobPortal\Company\Infrastructure\Controllers\Create;
 
 use Src\JobPortal\Company\Application\Create\CompanyCreateRequest;
 use Src\JobPortal\Company\Application\Create\CompanyCreateUseCase;
+use \Illuminate\Http\Response;
 
 final class CompanyCreateController
 {
@@ -14,7 +15,7 @@ final class CompanyCreateController
         $this->useCase = $useCase;
     }
 
-    public function __invoke(CompanyCreateRequestValidation $request)
+    public function __invoke(CompanyCreateRequestValidation $request): Response
     {
         $request = new CompanyCreateRequest($request);
 

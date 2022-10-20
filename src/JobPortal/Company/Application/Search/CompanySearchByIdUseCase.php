@@ -5,6 +5,7 @@ namespace Src\JobPortal\Company\Application\Search;
 use Src\JobPortal\Company\Domain\Exceptions\CompanyException;
 use Src\JobPortal\Company\Domain\Contracts\CompanyRepositoryContract;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
+use \Illuminate\Http\Response;
 
 class CompanySearchByIdUseCase
 {
@@ -15,7 +16,7 @@ class CompanySearchByIdUseCase
         $this->repository = $repository;
     }
 
-    public function __invoke(CompanyId $id)
+    public function __invoke(CompanyId $id): Response
     {
         $response = $this->repository->searchById($id);
 
@@ -29,7 +30,7 @@ class CompanySearchByIdUseCase
         ], 200);
     }
 
-    private function exception()
+    private function exception(): void
     {
         throw new CompanyException("There are no companies in the database.", 500);
     }

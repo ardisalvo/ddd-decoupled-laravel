@@ -4,6 +4,7 @@ namespace Src\JobPortal\Company\Infrastructure\Controllers\Search\ByName;
 
 use Src\JobPortal\Company\Application\Search\CompanySearchByNameUseCase;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
+use \Illuminate\Http\Response;
 
 final class CompanySearchByNameController
 {
@@ -15,10 +16,7 @@ final class CompanySearchByNameController
         $this->useCase = $useCase;
     }
 
-    /**
-     * @return array
-     */
-    public function __invoke(CompanySearchByNameRequestValidation $request)
+    public function __invoke(CompanySearchByNameRequestValidation $request): Response
     {
         return $this->useCase->__invoke(new CompanyName($request->get('name')));
     }

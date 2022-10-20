@@ -30,7 +30,7 @@ class CompanyCreateRequestValidation extends FormRequest
         ];
     }
 
-    public function failedValidation(Validator $validator)
+    public function failedValidation(Validator $validator): void
     {
         throw new CompanyException($this->formatErrorRequestValidations($validator->errors()->all()), 400);
     }

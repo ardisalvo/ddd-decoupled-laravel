@@ -6,6 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Src\JobPortal\_Shared\Helpers\RequestHelper;
 use Src\JobPortal\Company\Domain\Exceptions\CompanyException;
+use \Illuminate\Http\Response;
 
 class CompanySearchByNameRequestValidation extends FormRequest
 {
@@ -25,7 +26,7 @@ class CompanySearchByNameRequestValidation extends FormRequest
         ];
     }
 
-    public function failedValidation(Validator $validator)
+    public function failedValidation(Validator $validator): Response
     {
         throw new CompanyException($this->formatErrorRequestValidations($validator->errors()->all()), 400);
     }

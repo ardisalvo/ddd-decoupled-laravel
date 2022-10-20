@@ -181,6 +181,7 @@ class EloquentCompanyRepositoryTest extends TestCase
         $this->assertEquals(0, $this->repository->count());
     }
 
+    /** @test */
     public function it_should_fail_create_because_missing_params(): void
     {
         $this->initializeVariables();

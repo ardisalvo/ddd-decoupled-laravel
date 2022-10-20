@@ -45,8 +45,4 @@ final class Company
     {
         return $this->status;
     }
-
-    public function toArray(){
-        return (array)$this;
-    }
 }

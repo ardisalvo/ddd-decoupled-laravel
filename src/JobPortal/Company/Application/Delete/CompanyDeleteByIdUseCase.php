@@ -5,7 +5,7 @@ namespace Src\JobPortal\Company\Application\Delete;
 use Src\JobPortal\Company\Domain\Exceptions\CompanyException;
 use Src\JobPortal\Company\Domain\Contracts\CompanyRepositoryContract;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
-use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
+use \Illuminate\Http\Response;
 
 class CompanyDeleteByIdUseCase
 {
@@ -16,7 +16,7 @@ class CompanyDeleteByIdUseCase
         $this->repository = $repository;
     }
 
-    public function __invoke(CompanyId $id)
+    public function __invoke(CompanyId $id): Response
     {
         $response = $this->repository->deleteById($id);
 
@@ -30,8 +30,9 @@ class CompanyDeleteByIdUseCase
         ], 200);
     }
 
-    private function exception()
+    private function exception(): void
     {
-        throw new CompanyException("The company could not be deleted. Please verify that the ID is correct and that the company exists.", 500);
+        throw new CompanyException("The company could not be deleted. Please verify that the ID is correct and that the company exists.",
+            500);
     }
 }
