@@ -6,6 +6,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Src\JobPortal\Company\Application\Create\CompanyCreateRequest;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
 use Src\JobPortal\Company\Infrastructure\Controllers\Create\CompanyCreateRequestValidation;
+use Src\JobPortal\Company\Infrastructure\Controllers\Delete\CompanyDeleteByIdRequestValidation;
+use Src\JobPortal\Company\Infrastructure\Controllers\Search\CompanySearchByIdRequestValidation;
 use Src\JobPortal\Company\Infrastructure\Repositories\Eloquent\EloquentCompanyRepository;
 use Tests\JobPortal\Company\Application\Domain\CompanyIdMother;
 use Tests\JobPortal\Company\Application\Domain\CompanyNameMother;
@@ -21,7 +23,9 @@ class EloquentCompanyRepositoryTest extends TestCase
     use RefreshDatabase;
 
     private null|Request $request;
-    private null|CompanyCreateRequestValidation $requestValidation;
+    private null|CompanyCreateRequestValidation $createRequestValidation;
+    private null|CompanySearchByIdRequestValidation $searchByIdRequestValidation;
+    private null|CompanyDeleteByIdRequestValidation $deleteByIdRequestValidation;
     private null|EloquentCompanyRepository $repository;
     private string $staticUuid;
 
@@ -30,7 +34,8 @@ class EloquentCompanyRepositoryTest extends TestCase
         parent::__construct($name, $data, $dataName);
 
         $this->request = null;
-        $this->requestValidation = null;
+        $this->createRequestValidation = null;
+        $this->searchByIdRequestValidation = null;
         $this->repository = null;
         $this->staticUuid = '49424436-4f25-11ed-bdc3-0242ac120002';
     }
@@ -63,7 +68,7 @@ class EloquentCompanyRepositoryTest extends TestCase
                 'sector' => CompanySectorMother::random()->value(),
                 'status' => CompanyStatusMother::random()->value(),
             ]);
-            $validation = Validator::make($this->request->all(), $this->requestValidation->rules());
+            $validation = Validator::make($this->request->all(), $this->createRequestValidation->rules());
             $this->assertFalse($validation->fails());
 
             $company = new CompanyCreateRequest($this->request);
@@ -79,6 +84,7 @@ class EloquentCompanyRepositoryTest extends TestCase
     /** @test */
     public function it_should_create_specific_uuid_company_then_verify_searching_uuid(): void
     {
+        // Create
         $this->initializeVariables();
 
         $this->request->replace([
@@ -88,7 +94,7 @@ class EloquentCompanyRepositoryTest extends TestCase
             'status' => CompanyStatusMother::random()->value(),
         ]);
 
-        $validation = Validator::make($this->request->all(), $this->requestValidation->rules());
+        $validation = Validator::make($this->request->all(), $this->createRequestValidation->rules());
 
         $this->assertFalse($validation->fails());
 
@@ -101,14 +107,26 @@ class EloquentCompanyRepositoryTest extends TestCase
 
         $this->assertEquals(1, $this->repository->count());
 
+        // Search
+        $this->initializeVariables();
+
+        $this->request->replace([
+            'id' => $this->staticUuid,
+        ]);
+
+        $validation = Validator::make($this->request->all(), $this->searchByIdRequestValidation->rules());
+
+        $this->assertFalse($validation->fails());
+
         $results = $this->repository->searchById(new CompanyId($this->staticUuid));
 
-        $this->assertEquals($this->staticUuid, $results->id()->value());
+        $this->assertEquals($this->staticUuid, $results->id);
     }
 
-
+    /** @test */
     public function it_should_create_specific_uuid_company_then_delete_by_uuid(): void
     {
+        // Create
         $this->initializeVariables();
 
         $this->request->replace([
@@ -118,7 +136,7 @@ class EloquentCompanyRepositoryTest extends TestCase
             'status' => CompanyStatusMother::random()->value(),
         ]);
 
-        $validation = Validator::make($this->request->all(), $this->requestValidation->rules());
+        $validation = Validator::make($this->request->all(), $this->createRequestValidation->rules());
 
         $this->assertFalse($validation->fails());
 
@@ -131,16 +149,38 @@ class EloquentCompanyRepositoryTest extends TestCase
 
         $this->assertEquals(1, $this->repository->count());
 
+        // Search
+        $this->initializeVariables();
+
+        $this->request->replace([
+            'id' => $this->staticUuid,
+        ]);
+
+        $validation = Validator::make($this->request->all(), $this->searchByIdRequestValidation->rules());
+
+        $this->assertFalse($validation->fails());
+
         $results = $this->repository->searchById(new CompanyId($this->staticUuid));
 
-        $this->assertEquals($this->staticUuid, $results->id()->value());
+        $this->assertEquals($this->staticUuid, $results->id);
+
+
+        // Delete
+        $this->initializeVariables();
+
+        $this->request->replace([
+            'id' => $this->staticUuid,
+        ]);
+
+        $validation = Validator::make($this->request->all(), $this->deleteByIdRequestValidation->rules());
+
+        $this->assertFalse($validation->fails());
 
         $this->repository->deleteById(new CompanyId($this->staticUuid));
 
         $this->assertEquals(0, $this->repository->count());
     }
 
-    /** test */
     public function it_should_fail_create_because_missing_params(): void
     {
         $this->initializeVariables();
@@ -150,7 +190,7 @@ class EloquentCompanyRepositoryTest extends TestCase
             'name' => CompanyNameMother::random(),
         ]);
 
-        $validation = Validator::make($this->request->all(), $this->requestValidation->rules());
+        $validation = Validator::make($this->request->all(), $this->createRequestValidation->rules());
 
         $this->assertTrue($validation->fails());
 
@@ -160,7 +200,9 @@ class EloquentCompanyRepositoryTest extends TestCase
     private function initializeVariables()
     {
         $this->request = new Request();
-        $this->requestValidation = new CompanyCreateRequestValidation();
+        $this->createRequestValidation = new CompanyCreateRequestValidation();
+        $this->searchByIdRequestValidation = new CompanySearchByIdRequestValidation();
+        $this->deleteByIdRequestValidation = new CompanyDeleteByIdRequestValidation();
         $this->repository = new EloquentCompanyRepository();
     }
 

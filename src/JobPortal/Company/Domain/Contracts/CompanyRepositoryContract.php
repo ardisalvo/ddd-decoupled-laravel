@@ -12,7 +12,7 @@ interface CompanyRepositoryContract
 {
     public function create(Company $company): CompanyId|null;
 
-    public function searchById(CompanyId $id): ?Company;
+    public function searchById(CompanyId $id): ?EloquentCompanyModel;
 
     public function searchByName(CompanyName $name): ?EloquentCompanyModel;
 

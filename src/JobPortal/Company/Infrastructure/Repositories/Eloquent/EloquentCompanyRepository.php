@@ -29,20 +29,9 @@ class EloquentCompanyRepository implements CompanyRepositoryContract
         return null;
     }
 
-    public function searchById(CompanyId $id): ?Company
+    public function searchById(CompanyId $id): ?EloquentCompanyModel
     {
-        $model = EloquentCompanyModel::where('id', $id->value())->first();
-
-        if (null === $model) {
-            return null;
-        }
-
-        return new Company(
-            new CompanyId($model->id),
-            new CompanyName($model->name),
-            new CompanySector($model->sector),
-            new CompanyStatus($model->status),
-        );
+        return EloquentCompanyModel::where('id', $id)->first();
     }
 
     public function count(): int
