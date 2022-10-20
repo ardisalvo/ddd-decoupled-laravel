@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('candidates', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('id')->primary();
             $table->string('first_name', 45);
             $table->string('last_name', 45);
             $table->string('phone', 45);
