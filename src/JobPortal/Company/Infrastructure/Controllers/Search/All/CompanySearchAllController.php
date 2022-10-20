@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\JobPortal\Company\Infrastructure\Controllers\Search;
+namespace Src\JobPortal\Company\Infrastructure\Controllers\Search\All;
 
 use Src\JobPortal\Company\Application\Search\CompanySearchAllUseCase;
 

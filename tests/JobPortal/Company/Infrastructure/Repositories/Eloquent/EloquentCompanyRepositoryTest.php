@@ -3,20 +3,20 @@
 namespace Tests\JobPortal\Company\Infrastructure\Repositories\Eloquent;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Src\JobPortal\Company\Application\Create\CompanyCreateRequest;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
 use Src\JobPortal\Company\Infrastructure\Controllers\Create\CompanyCreateRequestValidation;
 use Src\JobPortal\Company\Infrastructure\Controllers\Delete\CompanyDeleteByIdRequestValidation;
-use Src\JobPortal\Company\Infrastructure\Controllers\Search\CompanySearchByIdRequestValidation;
+use Src\JobPortal\Company\Infrastructure\Controllers\Search\ById\CompanySearchByIdRequestValidation;
 use Src\JobPortal\Company\Infrastructure\Repositories\Eloquent\EloquentCompanyRepository;
 use Tests\JobPortal\Company\Application\Domain\CompanyIdMother;
+use Tests\JobPortal\Company\Application\Domain\CompanyMother;
 use Tests\JobPortal\Company\Application\Domain\CompanyNameMother;
 use Tests\JobPortal\Company\Application\Domain\CompanySectorMother;
 use Tests\JobPortal\Company\Application\Domain\CompanyStatusMother;
 use Tests\TestCase;
-use Tests\JobPortal\Company\Application\Domain\CompanyMother;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\Request;
 
 class EloquentCompanyRepositoryTest extends TestCase
 {

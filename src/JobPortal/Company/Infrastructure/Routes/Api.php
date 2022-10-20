@@ -3,11 +3,11 @@
 namespace Src\JobPortal\Candidate\Infrastructure\Routes;
 
 use Illuminate\Support\Facades\Route;
-use Src\JobPortal\Company\Infrastructure\Controllers\Delete\CompanyDeleteByIdController;
-use Src\JobPortal\Company\Infrastructure\Controllers\Search\CompanySearchAllController;
 use Src\JobPortal\Company\Infrastructure\Controllers\Create\CompanyCreateController;
-use Src\JobPortal\Company\Infrastructure\Controllers\Search\CompanySearchByIdController;
-use Src\JobPortal\Company\Infrastructure\Controllers\Search\CompanySearchByNameController;
+use Src\JobPortal\Company\Infrastructure\Controllers\Delete\CompanyDeleteByIdController;
+use Src\JobPortal\Company\Infrastructure\Controllers\Search\All\CompanySearchAllController;
+use Src\JobPortal\Company\Infrastructure\Controllers\Search\ById\CompanySearchByIdController;
+use Src\JobPortal\Company\Infrastructure\Controllers\Search\ByName\CompanySearchByNameController;
 
 Route::get('/', function () {
     dd('Welcome to JobPortal Project DDD. -- Company');

@@ -1,27 +1,27 @@
 <?php
 
-namespace Src\JobPortal\Company\Infrastructure\Controllers\Search;
+namespace Src\JobPortal\Company\Infrastructure\Controllers\Search\ByName;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Src\JobPortal\_Shared\Helpers\RequestHelper;
 use Src\JobPortal\Company\Domain\Exceptions\CompanyException;
 
-class CompanySearchByIdRequestValidation extends FormRequest
+class CompanySearchByNameRequestValidation extends FormRequest
 {
     use RequestHelper;
 
     public function rules(): array
     {
         return [
-            'id' => 'required|uuid',
+            'name' => 'required|string',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'id.required' => 'Company ID is required.',
+            'name.required' => 'Company name is required.',
         ];
     }
 
