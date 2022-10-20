@@ -2,6 +2,7 @@
 
 namespace Src\JobPortal\Company\Infrastructure\Repositories\Eloquent;
 
+use Illuminate\Database\Eloquent\Collection;
 use Src\JobPortal\Company\Domain\Company;
 use Src\JobPortal\Company\Domain\Contracts\CompanyRepositoryContract;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
@@ -49,23 +50,14 @@ class EloquentCompanyRepository implements CompanyRepositoryContract
         return EloquentCompanyModel::count();
     }
 
-    public function getAllIConvertedArray(): array
+    public function getAll(): ?Collection
     {
-        return EloquentCompanyModel::get()->toArray();
+        return EloquentCompanyModel::orderBy('created_at', 'DESC')->get();
     }
 
     public function searchByName(CompanyName $name): ?EloquentCompanyModel
     {
-        $result = EloquentCompanyModel::where('name', $name)->first();
-return $result;
-        $company = new Company(
-            new CompanyId($result->id),
-            new CompanyName($result->name),
-            new CompanySector($result->sector),
-            new CompanyStatus($result->status),
-        );
-
-        return $company;
+        return EloquentCompanyModel::where('name', $name)->first();
     }
 
     public function deleteById(CompanyId $id): int

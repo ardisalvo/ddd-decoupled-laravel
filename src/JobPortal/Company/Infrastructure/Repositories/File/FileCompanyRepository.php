@@ -35,24 +35,4 @@ final class FileCompanyRepository implements CompanyRepositoryContract
     {
         return sprintf('%s.%s.repo', self::FILE_PATH, $id);
     }
-
-    public function searchByName(CompanyName $name): ?Company
-    {
-        // TODO: Implement searchByName() method.
-    }
-
-    public function deleteById(CompanyId $id): int
-    {
-        // TODO: Implement deleteById() method.
-    }
-
-    public function count(): int
-    {
-        // TODO: Implement count() method.
-    }
-
-    public function getAllIConvertedArray(): array
-    {
-        // TODO: Implement getAllIConvertedArray() method.
-    }
 }

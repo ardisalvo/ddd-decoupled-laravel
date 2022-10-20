@@ -16,7 +16,7 @@ class CompanySearchAllUseCase
 
     public function __invoke()
     {
-        $response = $this->repository->getAllIConvertedArray();
+        $response = $this->repository->getAll();
 
         if (!$response) {
             $this->exception();
