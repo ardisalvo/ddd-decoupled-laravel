@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Tests\JobPortal\Company\Application\Domain;
 
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
