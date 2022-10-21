@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Tests\JobPortal\Company\Application\Domain;
 
 use Src\JobPortal\_Shared\Domain\Company\ValueObjects\CompanyId;
@@ -38,6 +36,7 @@ final class CompanyMother
             CompanyIdMother::random(),
             CompanyNameMother::random(),
             CompanySectorMother::random(),
-            CompanyStatusMother::random());
+            CompanyStatusMother::random()
+        );
     }
 }

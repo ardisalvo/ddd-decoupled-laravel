@@ -2,9 +2,9 @@
 
 namespace Src\JobPortal\Offer\Application\Search;
 
-use Src\JobPortal\Offer\Domain\Exceptions\OfferException;
+use Illuminate\Http\Response;
 use Src\JobPortal\Offer\Domain\Contracts\OfferRepositoryContract;
-use \Illuminate\Http\Response;
+use Src\JobPortal\Offer\Domain\Exceptions\OfferException;
 
 class OfferSearchAllUseCase
 {
@@ -19,7 +19,7 @@ class OfferSearchAllUseCase
     {
         $response = $this->repository->getAll();
 
-        if (!$response) {
+        if (! $response) {
             $this->exception();
         }
 

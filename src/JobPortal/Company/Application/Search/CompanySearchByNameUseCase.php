@@ -2,10 +2,10 @@
 
 namespace Src\JobPortal\Company\Application\Search;
 
-use Src\JobPortal\Company\Domain\Exceptions\CompanyException;
+use Illuminate\Http\Response;
 use Src\JobPortal\Company\Domain\Contracts\CompanyRepositoryContract;
+use Src\JobPortal\Company\Domain\Exceptions\CompanyException;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
-use \Illuminate\Http\Response;
 
 class CompanySearchByNameUseCase
 {
@@ -20,7 +20,7 @@ class CompanySearchByNameUseCase
     {
         $response = $this->repository->searchByName($name);
 
-        if (!$response) {
+        if (! $response) {
             $this->exception();
         }
 

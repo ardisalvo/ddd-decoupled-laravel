@@ -2,13 +2,12 @@
 
 namespace Src\JobPortal\Candidate\Infrastructure\Controllers\Search\ById;
 
+use Illuminate\Http\Response;
 use Src\JobPortal\Candidate\Application\Search\CandidateSearchByIdUseCase;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
-use \Illuminate\Http\Response;
 
 final class CandidateSearchByIdController
 {
-
     private CandidateSearchByIdUseCase $useCase;
 
     public function __construct(CandidateSearchByIdUseCase $useCase)

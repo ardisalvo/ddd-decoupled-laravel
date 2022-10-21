@@ -2,7 +2,6 @@
 
 namespace Src\JobPortal\Company\Infrastructure\Services;
 
-
 use Carbon\Laravel\ServiceProvider;
 use Src\JobPortal\Company\Application\Create\CompanyCreateUseCase;
 use Src\JobPortal\Company\Application\Delete\CompanyDeleteByIdUseCase;

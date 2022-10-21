@@ -2,9 +2,9 @@
 
 namespace Src\JobPortal\Candidate\Infrastructure\Controllers\Create;
 
+use Illuminate\Http\Response;
 use Src\JobPortal\Candidate\Application\Create\CandidateCreateRequest;
 use Src\JobPortal\Candidate\Application\Create\CandidateCreateUseCase;
-use \Illuminate\Http\Response;
 
 final class CandidateCreateController
 {

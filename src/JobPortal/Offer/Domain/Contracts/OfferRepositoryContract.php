@@ -5,9 +5,7 @@ namespace Src\JobPortal\Offer\Domain\Contracts;
 use Illuminate\Database\Eloquent\Collection;
 use Src\JobPortal\_Shared\Domain\Company\ValueObjects\CompanyId;
 use Src\JobPortal\Offer\Domain\Offer;
-use Src\JobPortal\Offer\Domain\ValueObjects\OfferTitle;
 use Src\JobPortal\Offer\Domain\ValueObjects\OfferId;
-use Src\JobPortal\Offer\Domain\ValueObjects\OfferDescription;
 use Src\JobPortal\Offer\Infrastructure\Repositories\Eloquent\EloquentOfferModel;
 
 interface OfferRepositoryContract

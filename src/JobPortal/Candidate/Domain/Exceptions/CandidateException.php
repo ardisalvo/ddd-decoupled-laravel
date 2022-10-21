@@ -6,5 +6,4 @@ use Src\JobPortal\_Shared\Domain\Exceptions\CustomException;
 
 final class CandidateException extends CustomException
 {
-
 }

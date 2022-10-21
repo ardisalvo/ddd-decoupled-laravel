@@ -10,7 +10,6 @@ use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
 
 class EloquentCompanyRepository implements CompanyRepositoryContract
 {
-
     public function create(Company $company): CompanyId|null
     {
         $result = EloquentCompanyModel::create([

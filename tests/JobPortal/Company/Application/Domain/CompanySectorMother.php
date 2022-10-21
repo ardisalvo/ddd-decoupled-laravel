@@ -3,7 +3,6 @@
 namespace Tests\JobPortal\Company\Application\Domain;
 
 use Src\JobPortal\Company\Domain\ValueObjects\CompanySector;
-use Tests\Shared\Domain\IntegerMother;
 use Tests\Shared\Domain\RandomElementPicker;
 
 final class CompanySectorMother

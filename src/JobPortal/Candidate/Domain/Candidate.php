@@ -3,8 +3,8 @@
 namespace Src\JobPortal\Candidate\Domain;
 
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateEmail;
-use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateFirstName;
+use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateLastName;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidatePhone;
 
@@ -15,7 +15,6 @@ final class Candidate
     private CandidateLastName $lastName;
     private CandidateEmail $email;
     private CandidatePhone $phone;
-
 
     public function __construct(
         CandidateId $id,
@@ -60,5 +59,4 @@ final class Candidate
     {
         return $this->phone;
     }
-
 }

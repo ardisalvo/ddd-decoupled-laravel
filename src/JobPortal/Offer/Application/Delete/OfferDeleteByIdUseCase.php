@@ -2,10 +2,10 @@
 
 namespace Src\JobPortal\Offer\Application\Delete;
 
-use Src\JobPortal\Offer\Domain\Exceptions\OfferException;
+use Illuminate\Http\Response;
 use Src\JobPortal\Offer\Domain\Contracts\OfferRepositoryContract;
+use Src\JobPortal\Offer\Domain\Exceptions\OfferException;
 use Src\JobPortal\Offer\Domain\ValueObjects\OfferId;
-use \Illuminate\Http\Response;
 
 class OfferDeleteByIdUseCase
 {
@@ -20,7 +20,7 @@ class OfferDeleteByIdUseCase
     {
         $response = $this->repository->deleteById($id);
 
-        if (!$response) {
+        if (! $response) {
             $this->exception();
         }
 
@@ -32,7 +32,9 @@ class OfferDeleteByIdUseCase
 
     private function exception(): void
     {
-        throw new OfferException("The offer could not be deleted. Please verify that the ID is correct and that the offer exists.",
-            500);
+        throw new OfferException(
+            "The offer could not be deleted. Please verify that the ID is correct and that the offer exists.",
+            500
+        );
     }
 }

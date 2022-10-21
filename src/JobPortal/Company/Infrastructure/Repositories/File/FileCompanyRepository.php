@@ -9,7 +9,7 @@ use Src\JobPortal\Company\Domain\Contracts\CompanyRepositoryContract;
 
 final class FileCompanyRepository implements CompanyRepositoryContract
 {
-    private const FILE_PATH = __DIR__.'/files/companies';
+    private const FILE_PATH = __DIR__ . '/files/companies';
 
     public function create(Company $company): void
     {
@@ -17,7 +17,7 @@ final class FileCompanyRepository implements CompanyRepositoryContract
             'first_name' => 'A',
             'last_name' => 'B',
             'phone' => '622622622',
-            'email' => 'a@a.com'
+            'email' => 'a@a.com',
         ]);
 
         file_put_contents($this->fileName($company->id()->value()), serialize($company));

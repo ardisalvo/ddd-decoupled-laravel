@@ -2,13 +2,12 @@
 
 namespace Src\JobPortal\Company\Infrastructure\Controllers\Search\ByName;
 
+use Illuminate\Http\Response;
 use Src\JobPortal\Company\Application\Search\CompanySearchByNameUseCase;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
-use \Illuminate\Http\Response;
 
 final class CompanySearchByNameController
 {
-
     private CompanySearchByNameUseCase $useCase;
 
     public function __construct(CompanySearchByNameUseCase $useCase)

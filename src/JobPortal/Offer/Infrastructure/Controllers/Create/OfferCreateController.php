@@ -2,9 +2,9 @@
 
 namespace Src\JobPortal\Offer\Infrastructure\Controllers\Create;
 
+use Illuminate\Http\Response;
 use Src\JobPortal\Offer\Application\Create\OfferCreateRequest;
 use Src\JobPortal\Offer\Application\Create\OfferCreateUseCase;
-use \Illuminate\Http\Response;
 
 final class OfferCreateController
 {

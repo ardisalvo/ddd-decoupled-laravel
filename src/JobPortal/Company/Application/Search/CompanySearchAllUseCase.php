@@ -2,9 +2,9 @@
 
 namespace Src\JobPortal\Company\Application\Search;
 
-use Src\JobPortal\Company\Domain\Exceptions\CompanyException;
+use Illuminate\Http\Response;
 use Src\JobPortal\Company\Domain\Contracts\CompanyRepositoryContract;
-use \Illuminate\Http\Response;
+use Src\JobPortal\Company\Domain\Exceptions\CompanyException;
 
 class CompanySearchAllUseCase
 {
@@ -19,7 +19,7 @@ class CompanySearchAllUseCase
     {
         $response = $this->repository->getAll();
 
-        if (!$response) {
+        if (! $response) {
             $this->exception();
         }
 

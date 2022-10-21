@@ -2,10 +2,10 @@
 
 namespace Src\JobPortal\Candidate\Application\Search;
 
-use Src\JobPortal\Candidate\Domain\Exceptions\CandidateException;
+use Illuminate\Http\Response;
 use Src\JobPortal\Candidate\Domain\Contracts\CandidateRepositoryContract;
+use Src\JobPortal\Candidate\Domain\Exceptions\CandidateException;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
-use \Illuminate\Http\Response;
 
 class CandidateSearchByIdUseCase
 {
@@ -20,7 +20,7 @@ class CandidateSearchByIdUseCase
     {
         $response = $this->repository->searchById($id);
 
-        if (!$response) {
+        if (! $response) {
             $this->exception();
         }
 

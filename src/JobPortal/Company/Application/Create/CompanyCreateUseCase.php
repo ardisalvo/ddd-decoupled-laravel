@@ -2,10 +2,10 @@
 
 namespace Src\JobPortal\Company\Application\Create;
 
-use Src\JobPortal\Company\Domain\Exceptions\CompanyException;
+use Illuminate\Http\Response;
 use Src\JobPortal\Company\Domain\Company;
 use Src\JobPortal\Company\Domain\Contracts\CompanyRepositoryContract;
-use Illuminate\Http\Response;
+use Src\JobPortal\Company\Domain\Exceptions\CompanyException;
 
 class CompanyCreateUseCase
 {
@@ -22,7 +22,7 @@ class CompanyCreateUseCase
 
         $response = $this->repository->create($company);
 
-        if (!$response) {
+        if (! $response) {
             $this->exception();
         }
 

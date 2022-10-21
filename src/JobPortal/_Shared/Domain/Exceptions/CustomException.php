@@ -4,7 +4,6 @@ namespace Src\JobPortal\_Shared\Domain\Exceptions;
 
 class CustomException extends \Exception
 {
-
     /**
      * Report the exception.
      *

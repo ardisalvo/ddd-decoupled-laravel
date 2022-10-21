@@ -7,7 +7,6 @@ use Src\JobPortal\Candidate\Domain\Candidate;
 use Src\JobPortal\Candidate\Domain\Contracts\CandidateRepositoryContract;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateEmail;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
-use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateFirstName;
 
 class EloquentCandidateRepository implements CandidateRepositoryContract
 {

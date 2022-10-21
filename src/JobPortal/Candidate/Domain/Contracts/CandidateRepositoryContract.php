@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Collection;
 use Src\JobPortal\Candidate\Domain\Candidate;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateEmail;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
-use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateFirstName;
 use Src\JobPortal\Candidate\Infrastructure\Repositories\Eloquent\EloquentCandidateModel;
 
 interface CandidateRepositoryContract

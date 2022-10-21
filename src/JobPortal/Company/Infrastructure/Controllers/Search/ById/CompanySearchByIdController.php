@@ -8,7 +8,6 @@ use Src\JobPortal\Company\Application\Search\CompanySearchByIdUseCase;
 
 final class CompanySearchByIdController
 {
-
     private CompanySearchByIdUseCase $useCase;
 
     public function __construct(CompanySearchByIdUseCase $useCase)

@@ -4,9 +4,9 @@ namespace Src\JobPortal\Candidate\Infrastructure\Controllers\Search\ById;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Response;
 use Src\JobPortal\_Shared\Helpers\RequestHelper;
 use Src\JobPortal\Candidate\Domain\Exceptions\CandidateException;
-use \Illuminate\Http\Response;
 
 class CandidateSearchByIdRequestValidation extends FormRequest
 {
