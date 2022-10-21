@@ -2,9 +2,9 @@
 
 namespace Src\JobPortal\Company\Infrastructure\Controllers\Delete;
 
+use Illuminate\Http\Response;
+use Src\JobPortal\_Shared\Domain\Company\ValueObjects\CompanyId;
 use Src\JobPortal\Company\Application\Delete\CompanyDeleteByIdUseCase;
-use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
-use \Illuminate\Http\Response;
 
 final class CompanyDeleteByIdController
 {

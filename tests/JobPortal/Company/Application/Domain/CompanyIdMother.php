@@ -2,7 +2,7 @@
 
 namespace Tests\JobPortal\Company\Application\Domain;
 
-use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
+use Src\JobPortal\_Shared\Domain\Company\ValueObjects\CompanyId;
 use Tests\Shared\Domain\UuidMother;
 
 final class CompanyIdMother

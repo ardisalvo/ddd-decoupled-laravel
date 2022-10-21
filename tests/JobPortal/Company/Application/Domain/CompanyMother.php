@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\JobPortal\Company\Application\Domain;
 
+use Src\JobPortal\_Shared\Domain\Company\ValueObjects\CompanyId;
 use Src\JobPortal\Company\Application\Create\CompanyCreateRequest;
 use Src\JobPortal\Company\Domain\Company;
-use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanySector;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyStatus;
