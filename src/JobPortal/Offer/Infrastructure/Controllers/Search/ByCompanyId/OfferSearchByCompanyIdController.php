@@ -2,13 +2,12 @@
 
 namespace Src\JobPortal\Offer\Infrastructure\Controllers\Search\ByCompanyId;
 
+use Illuminate\Http\Response;
 use Src\JobPortal\_Shared\Domain\Company\ValueObjects\CompanyId;
 use Src\JobPortal\Offer\Application\Search\OfferSearchByCompanyIdUseCase;
-use \Illuminate\Http\Response;
 
 final class OfferSearchByCompanyIdController
 {
-
     private OfferSearchByCompanyIdUseCase $useCase;
 
     public function __construct(OfferSearchByCompanyIdUseCase $useCase)

@@ -2,10 +2,10 @@
 
 namespace Src\JobPortal\Candidate\Application\Create;
 
-use Src\JobPortal\Candidate\Domain\Exceptions\CandidateException;
+use Illuminate\Http\Response;
 use Src\JobPortal\Candidate\Domain\Candidate;
 use Src\JobPortal\Candidate\Domain\Contracts\CandidateRepositoryContract;
-use Illuminate\Http\Response;
+use Src\JobPortal\Candidate\Domain\Exceptions\CandidateException;
 
 class CandidateCreateUseCase
 {
@@ -18,7 +18,6 @@ class CandidateCreateUseCase
 
     public function __invoke(CandidateCreateRequest $request): Response
     {
-
         $candidate = new Candidate(
             $request->id(),
             $request->firstName(),
@@ -29,7 +28,7 @@ class CandidateCreateUseCase
 
         $response = $this->repository->create($candidate);
 
-        if (!$response) {
+        if (! $response) {
             $this->exception();
         }
 

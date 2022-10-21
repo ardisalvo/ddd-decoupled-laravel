@@ -2,9 +2,9 @@
 
 namespace Src\JobPortal\Company\Infrastructure\Controllers\Create;
 
+use Illuminate\Http\Response;
 use Src\JobPortal\Company\Application\Create\CompanyCreateRequest;
 use Src\JobPortal\Company\Application\Create\CompanyCreateUseCase;
-use \Illuminate\Http\Response;
 
 final class CompanyCreateController
 {

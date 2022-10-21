@@ -3,10 +3,10 @@
 namespace Src\JobPortal\Offer\Domain;
 
 use Src\JobPortal\_Shared\Domain\Company\ValueObjects\CompanyId;
-use Src\JobPortal\Offer\Domain\ValueObjects\OfferTitle;
-use Src\JobPortal\Offer\Domain\ValueObjects\OfferId;
 use Src\JobPortal\Offer\Domain\ValueObjects\OfferDescription;
+use Src\JobPortal\Offer\Domain\ValueObjects\OfferId;
 use Src\JobPortal\Offer\Domain\ValueObjects\OfferStatus;
+use Src\JobPortal\Offer\Domain\ValueObjects\OfferTitle;
 
 final class Offer
 {
@@ -15,7 +15,6 @@ final class Offer
     private OfferDescription $description;
     private CompanyId $companyId;
     private OfferStatus $status;
-
 
     public function __construct(
         OfferId $id,

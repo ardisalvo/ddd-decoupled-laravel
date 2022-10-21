@@ -20,7 +20,7 @@ class CompanySearchByIdUseCase
     {
         $response = $this->repository->searchById($id);
 
-        if (!$response) {
+        if (! $response) {
             $this->exception();
         }
 

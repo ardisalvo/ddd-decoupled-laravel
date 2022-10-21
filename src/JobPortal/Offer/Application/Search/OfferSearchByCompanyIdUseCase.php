@@ -2,12 +2,10 @@
 
 namespace Src\JobPortal\Offer\Application\Search;
 
+use Illuminate\Http\Response;
 use Src\JobPortal\_Shared\Domain\Company\ValueObjects\CompanyId;
-use Src\JobPortal\Offer\Domain\Exceptions\OfferException;
 use Src\JobPortal\Offer\Domain\Contracts\OfferRepositoryContract;
-use Src\JobPortal\Offer\Domain\ValueObjects\OfferTitle;
-use Src\JobPortal\Offer\Domain\ValueObjects\OfferDescription;
-use \Illuminate\Http\Response;
+use Src\JobPortal\Offer\Domain\Exceptions\OfferException;
 
 class OfferSearchByCompanyIdUseCase
 {
@@ -22,7 +20,7 @@ class OfferSearchByCompanyIdUseCase
     {
         $response = $this->repository->searchByCompanyId($companyId);
 
-        if (!$response) {
+        if (! $response) {
             $this->exception();
         }
 

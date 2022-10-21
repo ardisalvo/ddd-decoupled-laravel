@@ -20,7 +20,7 @@ class CompanyDeleteByIdUseCase
     {
         $response = $this->repository->deleteById($id);
 
-        if (!$response) {
+        if (! $response) {
             $this->exception();
         }
 
@@ -32,7 +32,9 @@ class CompanyDeleteByIdUseCase
 
     private function exception(): void
     {
-        throw new CompanyException("The company could not be deleted. Please verify that the ID is correct and that the company exists.",
-            500);
+        throw new CompanyException(
+            "The company could not be deleted. Please verify that the ID is correct and that the company exists.",
+            500
+        );
     }
 }

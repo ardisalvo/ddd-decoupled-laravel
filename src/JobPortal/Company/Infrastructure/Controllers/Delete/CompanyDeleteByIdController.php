@@ -8,7 +8,6 @@ use Src\JobPortal\Company\Application\Delete\CompanyDeleteByIdUseCase;
 
 final class CompanyDeleteByIdController
 {
-
     private CompanyDeleteByIdUseCase $useCase;
 
     public function __construct(CompanyDeleteByIdUseCase $useCase)

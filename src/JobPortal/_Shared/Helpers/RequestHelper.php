@@ -8,11 +8,10 @@ trait RequestHelper
     {
         $validationsMessage = [];
 
-        foreach($validators as $validator) {
+        foreach ($validators as $validator) {
             $validationsMessage[] = $validator;
         }
 
         return json_encode($validationsMessage);
     }
 }
-

@@ -2,14 +2,12 @@
 
 namespace Src\JobPortal\Candidate\Infrastructure\Controllers\Search\ByEmail;
 
+use Illuminate\Http\Response;
 use Src\JobPortal\Candidate\Application\Search\CandidateSearchByEmailUseCase;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateEmail;
-use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateFirstName;
-use \Illuminate\Http\Response;
 
 final class CandidateSearchByEmailController
 {
-
     private CandidateSearchByEmailUseCase $useCase;
 
     public function __construct(CandidateSearchByEmailUseCase $useCase)

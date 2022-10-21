@@ -2,10 +2,10 @@
 
 namespace Src\JobPortal\Candidate\Application\Delete;
 
-use Src\JobPortal\Candidate\Domain\Exceptions\CandidateException;
+use Illuminate\Http\Response;
 use Src\JobPortal\Candidate\Domain\Contracts\CandidateRepositoryContract;
+use Src\JobPortal\Candidate\Domain\Exceptions\CandidateException;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
-use \Illuminate\Http\Response;
 
 class CandidateDeleteByIdUseCase
 {
@@ -20,7 +20,7 @@ class CandidateDeleteByIdUseCase
     {
         $response = $this->repository->deleteById($id);
 
-        if (!$response) {
+        if (! $response) {
             $this->exception();
         }
 
@@ -32,7 +32,9 @@ class CandidateDeleteByIdUseCase
 
     private function exception(): void
     {
-        throw new CandidateException("The candidate could not be deleted. Please verify that the ID is correct and that the candidate exists.",
-            500);
+        throw new CandidateException(
+            "The candidate could not be deleted. Please verify that the ID is correct and that the candidate exists.",
+            500
+        );
     }
 }

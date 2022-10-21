@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Src\Shared\Domain\ValueObject;
 
@@ -30,7 +30,7 @@ class Uuid
 
     private function ensureIsValidUuid($id): void
     {
-        if (!RamseyUuid::isValid($id)) {
+        if (! RamseyUuid::isValid($id)) {
             throw new InvalidArgumentException(sprintf('<%s> does not allow the value <%s>.', static::class, $id));
         }
     }

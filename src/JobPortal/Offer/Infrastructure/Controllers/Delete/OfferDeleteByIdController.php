@@ -2,13 +2,12 @@
 
 namespace Src\JobPortal\Offer\Infrastructure\Controllers\Delete;
 
+use Illuminate\Http\Response;
 use Src\JobPortal\Offer\Application\Delete\OfferDeleteByIdUseCase;
 use Src\JobPortal\Offer\Domain\ValueObjects\OfferId;
-use \Illuminate\Http\Response;
 
 final class OfferDeleteByIdController
 {
-
     private OfferDeleteByIdUseCase $useCase;
 
     public function __construct(OfferDeleteByIdUseCase $useCase)

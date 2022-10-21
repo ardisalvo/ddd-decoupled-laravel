@@ -2,9 +2,9 @@
 
 namespace Src\JobPortal\Candidate\Application\Search;
 
-use Src\JobPortal\Candidate\Domain\Exceptions\CandidateException;
+use Illuminate\Http\Response;
 use Src\JobPortal\Candidate\Domain\Contracts\CandidateRepositoryContract;
-use \Illuminate\Http\Response;
+use Src\JobPortal\Candidate\Domain\Exceptions\CandidateException;
 
 class CandidateSearchAllUseCase
 {
@@ -19,7 +19,7 @@ class CandidateSearchAllUseCase
     {
         $response = $this->repository->getAll();
 
-        if (!$response) {
+        if (! $response) {
             $this->exception();
         }
 

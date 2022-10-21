@@ -18,4 +18,3 @@ Route::post('/search-by-company-id', OfferSearchByCompanyIdController::class);
 Route::post('/search-by-id', OfferSearchByIdController::class);
 Route::post('/create', OfferCreateController::class);
 Route::post('/delete-by-id', OfferDeleteByIdController::class);
-

@@ -2,10 +2,10 @@
 
 namespace Src\JobPortal\Offer\Application\Create;
 
+use Illuminate\Http\Response;
+use Src\JobPortal\Offer\Domain\Contracts\OfferRepositoryContract;
 use Src\JobPortal\Offer\Domain\Exceptions\OfferException;
 use Src\JobPortal\Offer\Domain\Offer;
-use Src\JobPortal\Offer\Domain\Contracts\OfferRepositoryContract;
-use Illuminate\Http\Response;
 
 class OfferCreateUseCase
 {
@@ -18,7 +18,6 @@ class OfferCreateUseCase
 
     public function __invoke(OfferCreateRequest $request): Response
     {
-
         $offer = new Offer(
             $request->id(),
             $request->title(),
@@ -29,7 +28,7 @@ class OfferCreateUseCase
 
         $response = $this->repository->create($offer);
 
-        if (!$response) {
+        if (! $response) {
             $this->exception();
         }
 

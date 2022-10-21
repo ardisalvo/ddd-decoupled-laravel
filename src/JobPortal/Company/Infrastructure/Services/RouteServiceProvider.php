@@ -2,12 +2,11 @@
 
 namespace Src\JobPortal\Company\Infrastructure\Services;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 final class RouteServiceProvider extends ServiceProvider
 {
-
     public function boot()
     {
         parent::boot();
