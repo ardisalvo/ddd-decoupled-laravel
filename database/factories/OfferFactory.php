@@ -2,13 +2,14 @@
 
 namespace Database\Factories;
 
+use App\Models\Company;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Company>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Offer>
  */
-class CompanyFactory extends Factory
+class OfferFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,8 +20,9 @@ class CompanyFactory extends Factory
     {
         return [
             'id' => fake()->uuid(),
-            'name' => fake()->company(),
-            'sector' => fake()->sentence(),
+            'title' => fake()->jobTitle(),
+            'description' => fake()->realText(),
+            'company_id' => Company::inRandomOrder()->first(),
             'status' => fake()->boolean(),
         ];
     }

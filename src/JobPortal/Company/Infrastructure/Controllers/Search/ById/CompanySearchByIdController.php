@@ -2,9 +2,9 @@
 
 namespace Src\JobPortal\Company\Infrastructure\Controllers\Search\ById;
 
+use Illuminate\Http\Response;
+use Src\JobPortal\_Shared\Domain\Company\ValueObjects\CompanyId;
 use Src\JobPortal\Company\Application\Search\CompanySearchByIdUseCase;
-use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
-use \Illuminate\Http\Response;
 
 final class CompanySearchByIdController
 {

@@ -2,11 +2,10 @@
 
 namespace Src\JobPortal\Company\Infrastructure\Repositories\File;
 
+use Src\JobPortal\_Shared\Domain\Company\ValueObjects\CompanyId;
 use Src\JobPortal\Candidate\Infrastructure\Repositories\Eloquent\Candidate;
 use Src\JobPortal\Company\Domain\Company;
 use Src\JobPortal\Company\Domain\Contracts\CompanyRepositoryContract;
-use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
-use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
 
 final class FileCompanyRepository implements CompanyRepositoryContract
 {

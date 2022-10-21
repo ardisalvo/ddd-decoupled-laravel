@@ -204,6 +204,8 @@ return [
         Src\JobPortal\Candidate\Infrastructure\Services\DependencyServiceProvider::class,
         Src\JobPortal\Company\Infrastructure\Services\RouteServiceProvider::class,
         Src\JobPortal\Company\Infrastructure\Services\DependencyServiceProvider::class,
+        Src\JobPortal\Offer\Infrastructure\Services\RouteServiceProvider::class,
+        Src\JobPortal\Offer\Infrastructure\Services\DependencyServiceProvider::class,
     ],
 
     /*

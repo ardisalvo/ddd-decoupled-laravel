@@ -2,10 +2,10 @@
 
 namespace Src\JobPortal\Company\Application\Search;
 
-use Src\JobPortal\Company\Domain\Exceptions\CompanyException;
+use Illuminate\Http\Response;
+use Src\JobPortal\_Shared\Domain\Company\ValueObjects\CompanyId;
 use Src\JobPortal\Company\Domain\Contracts\CompanyRepositoryContract;
-use Src\JobPortal\Company\Domain\ValueObjects\CompanyId;
-use \Illuminate\Http\Response;
+use Src\JobPortal\Company\Domain\Exceptions\CompanyException;
 
 class CompanySearchByIdUseCase
 {

@@ -18,6 +18,7 @@ class CandidateFactory extends Factory
     public function definition()
     {
         return [
+            'id' => fake()->uuid(),
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
