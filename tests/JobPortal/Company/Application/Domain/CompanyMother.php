@@ -38,6 +38,7 @@ final class CompanyMother
             CompanyIdMother::random(),
             CompanyNameMother::random(),
             CompanySectorMother::random(),
-            CompanyStatusMother::random());
+            CompanyStatusMother::random()
+        );
     }
 }

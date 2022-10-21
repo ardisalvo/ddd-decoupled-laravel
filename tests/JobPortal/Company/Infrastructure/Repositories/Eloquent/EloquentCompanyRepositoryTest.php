@@ -206,5 +206,4 @@ class EloquentCompanyRepositoryTest extends TestCase
         $this->deleteByIdRequestValidation = new CompanyDeleteByIdRequestValidation();
         $this->repository = new EloquentCompanyRepository();
     }
-
 }
