@@ -3,25 +3,21 @@
 namespace Src\JobPortal\Candidate\Infrastructure\Controllers\Delete;
 
 use Src\JobPortal\Candidate\Application\Delete\CandidateDeleteByIdUseCase;
-use Illuminate\Http\Request;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
+use \Illuminate\Http\Response;
 
 final class CandidateDeleteByIdController
 {
 
-    private $deleteByIdUseCase;
+    private CandidateDeleteByIdUseCase $useCase;
 
-    public function __construct(CandidateDeleteByIdUseCase $deleteByIdUseCase)
+    public function __construct(CandidateDeleteByIdUseCase $useCase)
     {
-        $this->deleteByIdUseCase = $deleteByIdUseCase;
+        $this->useCase = $useCase;
     }
 
-    public function __invoke(Request $request)
+    public function __invoke(CandidateDeleteByIdRequestValidation $request): Response
     {
-
-        $candidateId = $request->get('candidateId');
-        $candidateId = new CandidateId($candidateId);
-
-        return $this->deleteByIdUseCase->__invoke($candidateId);
+        return $this->useCase->__invoke(new CandidateId($request->get('id')));
     }
 }

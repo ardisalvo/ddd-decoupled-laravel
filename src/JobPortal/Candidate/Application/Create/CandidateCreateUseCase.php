@@ -2,36 +2,45 @@
 
 namespace Src\JobPortal\Candidate\Application\Create;
 
+use Src\JobPortal\Candidate\Domain\Exceptions\CandidateException;
+use Src\JobPortal\Candidate\Domain\Candidate;
 use Src\JobPortal\Candidate\Domain\Contracts\CandidateRepositoryContract;
-use Src\JobPortal\Candidate\Domain\Exceptions\CompanyException;
-use Src\JobPortal\Candidate\Domain\Requests\Create\CandidateCreateRequest;
+use Illuminate\Http\Response;
 
 class CandidateCreateUseCase
 {
     private CandidateRepositoryContract $repository;
 
-    public function __construct(CandidateRepositoryContract $candidateRepositoryContract)
+    public function __construct(CandidateRepositoryContract $repository)
     {
-        $this->repository = $candidateRepositoryContract;
+        $this->repository = $repository;
     }
 
-    public function __invoke(array $request, string $date): array
+    public function __invoke(CandidateCreateRequest $request): Response
     {
 
-        $response = $this->repository->create(new CandidateCreateRequest($request, $date));
+        $candidate = new Candidate(
+            $request->id(),
+            $request->firstName(),
+            $request->lastName(),
+            $request->email(),
+            $request->phone(),
+        );
+
+        $response = $this->repository->create($candidate);
 
         if (!$response) {
             $this->exception();
         }
 
-        return [
+        return response([
             'message' => 'Candidate successfully created.',
-            'id' => $response,
-        ];
+            'id' => $response->value(),
+        ], 200);
     }
 
-    private function exception()
+    private function exception(): void
     {
-        throw new CompanyException("Candidate cant be created", 500);
+        throw new CandidateException("Candidate cant be created", 500);
     }
 }

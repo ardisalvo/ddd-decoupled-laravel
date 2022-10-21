@@ -2,38 +2,37 @@
 
 namespace Src\JobPortal\Candidate\Application\Delete;
 
+use Src\JobPortal\Candidate\Domain\Exceptions\CandidateException;
 use Src\JobPortal\Candidate\Domain\Contracts\CandidateRepositoryContract;
-use Src\JobPortal\Candidate\Domain\Exceptions\CompanyException;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
+use \Illuminate\Http\Response;
 
-final class CandidateDeleteByIdUseCase
+class CandidateDeleteByIdUseCase
 {
     private CandidateRepositoryContract $repository;
 
-    public function __construct(CandidateRepositoryContract $candidateRepositoryContract)
+    public function __construct(CandidateRepositoryContract $repository)
     {
-        $this->repository = $candidateRepositoryContract;
+        $this->repository = $repository;
     }
 
-    public function __invoke(CandidateId $candidateId): array
+    public function __invoke(CandidateId $id): Response
     {
-        $response = $this->repository->deleteById($candidateId);
+        $response = $this->repository->deleteById($id);
 
         if (!$response) {
             $this->exception();
         }
 
-        return [
+        return response([
             'message' => 'Candidate deleted',
-            'candidate_data' => $candidateId->value(),
-        ];
+            'data' => $id->value(),
+        ], 200);
     }
 
-    private function exception()
+    private function exception(): void
     {
-        throw new CompanyException(
-            "The candidate cannot be deleted, please check if it exists or if the ID is correct.",
-            500
-        );
+        throw new CandidateException("The candidate could not be deleted. Please verify that the ID is correct and that the candidate exists.",
+            500);
     }
 }

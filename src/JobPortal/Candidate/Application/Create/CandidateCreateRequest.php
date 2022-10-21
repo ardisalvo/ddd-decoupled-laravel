@@ -1,14 +1,16 @@
 <?php
 
-namespace Src\JobPortal\Candidate\Domain;
+namespace Src\JobPortal\Candidate\Application\Create;
 
+use Illuminate\Http\Request;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateEmail;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateFirstName;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateLastName;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidatePhone;
+use Src\Shared\Domain\ValueObject\Uuid;
 
-final class Candidate
+final class CandidateCreateRequest
 {
     private CandidateId $id;
     private CandidateFirstName $firstName;
@@ -16,27 +18,18 @@ final class Candidate
     private CandidateEmail $email;
     private CandidatePhone $phone;
 
+    public function __construct(Request $request)
+    {
+        $requestId = $request->get('id') ?: Uuid::random()->value();
 
-    public function __construct(
-        CandidateId $id,
-        CandidateFirstName $firstName,
-        CandidateLastName $lastName,
-        CandidateEmail $email,
-        CandidatePhone $phone
-    ) {
-        $this->id = $id;
-        $this->firstName = $firstName;
-        $this->lastName = $lastName;
-        $this->email = $email;
-        $this->phone = $phone;
+        $this->id = new CandidateId($requestId);
+        $this->firstName = new CandidateFirstName($request->get('first_name'));
+        $this->lastName = new CandidateLastName($request->get('last_name'));
+        $this->email = new CandidateEmail($request->get('email'));
+        $this->phone = new CandidatePhone($request->get('phone'));
     }
 
     public function id(): CandidateId
-    {
-        return $this->id;
-    }
-
-    public function getId(): CandidateId
     {
         return $this->id;
     }
@@ -60,5 +53,4 @@ final class Candidate
     {
         return $this->phone;
     }
-
 }

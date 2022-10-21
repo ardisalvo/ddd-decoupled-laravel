@@ -2,17 +2,24 @@
 
 namespace Src\JobPortal\Candidate\Domain\Contracts;
 
-use Src\JobPortal\Candidate\Domain\Requests\Create\CandidateCreateRequest;
-use Src\JobPortal\Candidate\Domain\Requests\Update\CandidateUpdateRequest;
+use Illuminate\Database\Eloquent\Collection;
+use Src\JobPortal\Candidate\Domain\Candidate;
+use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateEmail;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
+use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateFirstName;
+use Src\JobPortal\Candidate\Infrastructure\Repositories\Eloquent\EloquentCandidateModel;
 
 interface CandidateRepositoryContract
 {
-    public function findAll(): array;
+    public function create(Candidate $candidate): CandidateId|null;
 
-    public function deleteById(CandidateId $candidateId): bool;
+    public function searchById(CandidateId $id): ?EloquentCandidateModel;
 
-    public function create(CandidateCreateRequest $candidateCreateRequest): ?int;
+    public function searchByEmail(CandidateEmail $name): ?EloquentCandidateModel;
 
-    public function update(CandidateId $candidateId, CandidateUpdateRequest $candidateUpdateRequest): ?int;
+    public function deleteById(CandidateId $id): int;
+
+    public function count(): int;
+
+    public function getAll(): ?Collection;
 }

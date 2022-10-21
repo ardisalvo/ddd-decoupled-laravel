@@ -2,24 +2,23 @@
 
 namespace Src\JobPortal\Candidate\Infrastructure\Controllers\Create;
 
+use Src\JobPortal\Candidate\Application\Create\CandidateCreateRequest;
 use Src\JobPortal\Candidate\Application\Create\CandidateCreateUseCase;
-use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
-use Src\JobPortal\Candidate\Infrastructure\RequestValidations\CandidateCreateRequestValidation;
-use Src\JobPortal\_Shared\Helpers\DateHelper;
+use \Illuminate\Http\Response;
 
 final class CandidateCreateController
 {
-    use DateHelper;
+    private CandidateCreateUseCase $useCase;
 
-    private $createUseCase;
-
-    public function __construct(CandidateCreateUseCase $createUseCase)
+    public function __construct(CandidateCreateUseCase $useCase)
     {
-        $this->createUseCase = $createUseCase;
+        $this->useCase = $useCase;
     }
 
-    public function __invoke(CandidateCreateRequestValidation $request): array
+    public function __invoke(CandidateCreateRequestValidation $request): Response
     {
-        return $this->createUseCase->__invoke($request->all(), $this->getNowTimeString());
+        $request = new CandidateCreateRequest($request);
+
+        return $this->useCase->__invoke($request);
     }
 }

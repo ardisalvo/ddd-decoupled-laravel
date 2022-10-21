@@ -2,15 +2,18 @@
 
 namespace Src\JobPortal\Candidate\Infrastructure\Repositories\Eloquent;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Model;
 
-final class Candidate extends \App\Models\Candidate
+class EloquentCandidateModel extends Model
 {
-    use SoftDeletes;
-
     protected $table = 'candidates';
+    protected $keyType = 'string';
+    public $incrementing = false;
+
+    public $timestamps = true;
 
     protected $fillable = [
+        'id',
         'first_name',
         'last_name',
         'phone',
