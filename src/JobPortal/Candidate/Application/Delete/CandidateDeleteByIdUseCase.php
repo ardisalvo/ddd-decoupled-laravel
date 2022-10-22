@@ -3,9 +3,9 @@
 namespace Src\JobPortal\Candidate\Application\Delete;
 
 use Illuminate\Http\Response;
+use Src\JobPortal\_Shared\Domain\Candidate\ValueObjects\CandidateId;
 use Src\JobPortal\Candidate\Domain\Contracts\CandidateRepositoryContract;
 use Src\JobPortal\Candidate\Domain\Exceptions\CandidateException;
-use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
 
 class CandidateDeleteByIdUseCase
 {

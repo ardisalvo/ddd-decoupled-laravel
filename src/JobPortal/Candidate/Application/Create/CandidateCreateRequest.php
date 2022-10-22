@@ -3,9 +3,9 @@
 namespace Src\JobPortal\Candidate\Application\Create;
 
 use Illuminate\Http\Request;
+use Src\JobPortal\_Shared\Domain\Candidate\ValueObjects\CandidateId;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateEmail;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateFirstName;
-use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateLastName;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidatePhone;
 use Src\Shared\Domain\ValueObject\Uuid;

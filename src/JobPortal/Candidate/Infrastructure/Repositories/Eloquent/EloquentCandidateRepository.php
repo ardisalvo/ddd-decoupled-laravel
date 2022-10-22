@@ -3,10 +3,10 @@
 namespace Src\JobPortal\Candidate\Infrastructure\Repositories\Eloquent;
 
 use Illuminate\Database\Eloquent\Collection;
+use Src\JobPortal\_Shared\Domain\Candidate\ValueObjects\CandidateId;
 use Src\JobPortal\Candidate\Domain\Candidate;
 use Src\JobPortal\Candidate\Domain\Contracts\CandidateRepositoryContract;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateEmail;
-use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
 
 class EloquentCandidateRepository implements CandidateRepositoryContract
 {

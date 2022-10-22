@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\JobPortal\Candidate\Domain\ValueObjects;
+namespace Src\JobPortal\_Shared\Domain\Candidate\ValueObjects;
 
 use Src\Shared\Domain\ValueObject\Uuid;
 
