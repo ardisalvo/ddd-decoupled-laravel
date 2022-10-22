@@ -33,7 +33,7 @@ class ApplicationDeleteByIdUseCase
     private function exception(): void
     {
         throw new ApplicationException(
-            "The offer could not be deleted. Please verify that the ID is correct and that the offer exists.",
+            "The application could not be deleted. Please verify that the ID is correct and that the application exists.",
             500
         );
     }

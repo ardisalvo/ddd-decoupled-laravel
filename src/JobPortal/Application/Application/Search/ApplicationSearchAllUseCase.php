@@ -24,13 +24,13 @@ class ApplicationSearchAllUseCase
         }
 
         return response([
-            'message' => 'List of offers:',
+            'message' => 'List of applications:',
             'data' => $response,
         ], 200);
     }
 
     private function exception(): void
     {
-        throw new ApplicationException("There are no offers in the database.", 500);
+        throw new ApplicationException("There are no applications in the database.", 500);
     }
 }

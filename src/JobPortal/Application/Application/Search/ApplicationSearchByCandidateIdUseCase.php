@@ -32,6 +32,6 @@ class ApplicationSearchByCandidateIdUseCase
 
     private function exception(): void
     {
-        throw new ApplicationException("There are no offer in the database.", 500);
+        throw new ApplicationException("There are no applications in the database.", 500);
     }
 }
