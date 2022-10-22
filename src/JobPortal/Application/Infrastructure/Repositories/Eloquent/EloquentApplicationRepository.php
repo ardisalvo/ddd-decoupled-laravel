@@ -4,7 +4,6 @@ namespace Src\JobPortal\Application\Infrastructure\Repositories\Eloquent;
 
 use Illuminate\Database\Eloquent\Collection;
 use Src\JobPortal\_Shared\Domain\Candidate\ValueObjects\CandidateId;
-use Src\JobPortal\_Shared\Domain\Company\ValueObjects\CompanyId;
 use Src\JobPortal\_Shared\Domain\Offer\ValueObjects\OfferId;
 use Src\JobPortal\Application\Domain\Contracts\ApplicationRepositoryContract;
 use Src\JobPortal\Application\Domain\Application;

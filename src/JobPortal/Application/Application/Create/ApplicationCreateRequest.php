@@ -4,7 +4,6 @@ namespace Src\JobPortal\Application\Application\Create;
 
 use Illuminate\Http\Request;
 use Src\JobPortal\_Shared\Domain\Candidate\ValueObjects\CandidateId;
-use Src\JobPortal\_Shared\Domain\Company\ValueObjects\CompanyId;
 use Src\JobPortal\_Shared\Domain\Offer\ValueObjects\OfferId;
 use Src\JobPortal\Application\Domain\ValueObjects\ApplicationAnnotations;
 use Src\JobPortal\Application\Domain\ValueObjects\ApplicationId;
@@ -55,6 +54,4 @@ final class ApplicationCreateRequest
     {
         return $this->annotations;
     }
-
-
 }

@@ -3,7 +3,6 @@
 namespace Src\JobPortal\Application\Domain;
 
 use Src\JobPortal\_Shared\Domain\Candidate\ValueObjects\CandidateId;
-use Src\JobPortal\_Shared\Domain\Company\ValueObjects\CompanyId;
 use Src\JobPortal\_Shared\Domain\Offer\ValueObjects\OfferId;
 use Src\JobPortal\Application\Domain\ValueObjects\ApplicationAnnotations;
 use Src\JobPortal\Application\Domain\ValueObjects\ApplicationId;
@@ -11,7 +10,6 @@ use Src\JobPortal\Application\Domain\ValueObjects\ApplicationStatus;
 
 final class Application
 {
-
     private ApplicationId $id;
     private OfferId $offerId;
     private CandidateId $candidateId;
@@ -56,5 +54,4 @@ final class Application
     {
         return $this->status;
     }
-
 }

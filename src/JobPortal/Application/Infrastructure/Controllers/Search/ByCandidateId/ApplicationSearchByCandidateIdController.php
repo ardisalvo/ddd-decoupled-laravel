@@ -4,7 +4,6 @@ namespace Src\JobPortal\Application\Infrastructure\Controllers\Search\ByCandidat
 
 use Illuminate\Http\Response;
 use Src\JobPortal\_Shared\Domain\Candidate\ValueObjects\CandidateId;
-use Src\JobPortal\_Shared\Domain\Company\ValueObjects\CompanyId;
 use Src\JobPortal\Application\Application\Search\ApplicationSearchByCandidateIdUseCase;
 
 final class ApplicationSearchByCandidateIdController
