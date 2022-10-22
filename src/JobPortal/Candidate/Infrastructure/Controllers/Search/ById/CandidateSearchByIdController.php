@@ -3,8 +3,8 @@
 namespace Src\JobPortal\Candidate\Infrastructure\Controllers\Search\ById;
 
 use Illuminate\Http\Response;
+use Src\JobPortal\_Shared\Domain\Candidate\ValueObjects\CandidateId;
 use Src\JobPortal\Candidate\Application\Search\CandidateSearchByIdUseCase;
-use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
 
 final class CandidateSearchByIdController
 {

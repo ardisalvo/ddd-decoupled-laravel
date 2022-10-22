@@ -3,9 +3,9 @@
 namespace Src\JobPortal\Candidate\Domain\Contracts;
 
 use Illuminate\Database\Eloquent\Collection;
+use Src\JobPortal\_Shared\Domain\Candidate\ValueObjects\CandidateId;
 use Src\JobPortal\Candidate\Domain\Candidate;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateEmail;
-use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
 use Src\JobPortal\Candidate\Infrastructure\Repositories\Eloquent\EloquentCandidateModel;
 
 interface CandidateRepositoryContract
@@ -14,7 +14,7 @@ interface CandidateRepositoryContract
 
     public function searchById(CandidateId $id): ?EloquentCandidateModel;
 
-    public function searchByEmail(CandidateEmail $name): ?EloquentCandidateModel;
+    public function searchByEmail(CandidateEmail $email): ?EloquentCandidateModel;
 
     public function deleteById(CandidateId $id): int;
 

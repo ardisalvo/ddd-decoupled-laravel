@@ -3,8 +3,8 @@
 namespace Src\JobPortal\Candidate\Infrastructure\Controllers\Delete;
 
 use Illuminate\Http\Response;
+use Src\JobPortal\_Shared\Domain\Candidate\ValueObjects\CandidateId;
 use Src\JobPortal\Candidate\Application\Delete\CandidateDeleteByIdUseCase;
-use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateId;
 
 final class CandidateDeleteByIdController
 {

@@ -3,9 +3,9 @@
 namespace Src\JobPortal\Offer\Application\Delete;
 
 use Illuminate\Http\Response;
+use Src\JobPortal\_Shared\Domain\Offer\ValueObjects\OfferId;
 use Src\JobPortal\Offer\Domain\Contracts\OfferRepositoryContract;
 use Src\JobPortal\Offer\Domain\Exceptions\OfferException;
-use Src\JobPortal\Offer\Domain\ValueObjects\OfferId;
 
 class OfferDeleteByIdUseCase
 {
