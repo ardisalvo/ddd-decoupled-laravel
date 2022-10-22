@@ -4,8 +4,8 @@ namespace Src\JobPortal\Offer\Application\Create;
 
 use Illuminate\Http\Request;
 use Src\JobPortal\_Shared\Domain\Company\ValueObjects\CompanyId;
+use Src\JobPortal\_Shared\Domain\Offer\ValueObjects\OfferId;
 use Src\JobPortal\Offer\Domain\ValueObjects\OfferDescription;
-use Src\JobPortal\Offer\Domain\ValueObjects\OfferId;
 use Src\JobPortal\Offer\Domain\ValueObjects\OfferStatus;
 use Src\JobPortal\Offer\Domain\ValueObjects\OfferTitle;
 use Src\Shared\Domain\ValueObject\Uuid;
