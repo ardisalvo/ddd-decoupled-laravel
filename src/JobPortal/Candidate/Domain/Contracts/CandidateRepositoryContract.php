@@ -14,7 +14,7 @@ interface CandidateRepositoryContract
 
     public function searchById(CandidateId $id): ?EloquentCandidateModel;
 
-    public function searchByEmail(CandidateEmail $name): ?EloquentCandidateModel;
+    public function searchByEmail(CandidateEmail $email): ?EloquentCandidateModel;
 
     public function deleteById(CandidateId $id): int;
 

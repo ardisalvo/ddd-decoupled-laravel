@@ -17,6 +17,6 @@ final class CandidateSearchByEmailController
 
     public function __invoke(CandidateSearchByEmailRequestValidation $request): Response
     {
-        return $this->useCase->__invoke(new CandidateEmail($request->get('name')));
+        return $this->useCase->__invoke(new CandidateEmail($request->get('email')));
     }
 }

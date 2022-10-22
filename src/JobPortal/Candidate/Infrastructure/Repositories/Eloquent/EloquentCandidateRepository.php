@@ -42,9 +42,9 @@ class EloquentCandidateRepository implements CandidateRepositoryContract
         return EloquentCandidateModel::orderBy('created_at', 'DESC')->get();
     }
 
-    public function searchByEmail(CandidateEmail $name): ?EloquentCandidateModel
+    public function searchByEmail(CandidateEmail $email): ?EloquentCandidateModel
     {
-        return EloquentCandidateModel::where('email', $name)->first();
+        return EloquentCandidateModel::where('email', $email)->first();
     }
 
     public function deleteById(CandidateId $id): int
