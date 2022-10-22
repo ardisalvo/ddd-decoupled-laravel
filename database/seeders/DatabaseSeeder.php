@@ -17,8 +17,7 @@ class DatabaseSeeder extends Seeder
             Candidates::class,
             Companies::class,
             Offers::class,
-            //Applications::class,
+            Applications::class,
         ]);
-
     }
 }

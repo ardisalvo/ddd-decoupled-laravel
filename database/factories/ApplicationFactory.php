@@ -3,9 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Candidate;
-use App\Models\Company;
+use App\Models\Offer;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Application>
@@ -21,7 +20,7 @@ class ApplicationFactory extends Factory
     {
         return [
             'id' => fake()->uuid(),
-            'offer_id' => Company::inRandomOrder()->first(),
+            'offer_id' => Offer::inRandomOrder()->first(),
             'candidate_id' => Candidate::inRandomOrder()->first(),
             'annotations' => fake()->realText(),
             'status' => fake()->biasedNumberBetween(1, 4),
