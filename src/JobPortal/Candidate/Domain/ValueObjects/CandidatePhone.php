@@ -2,8 +2,8 @@
 
 namespace Src\JobPortal\Candidate\Domain\ValueObjects;
 
-use Src\Shared\Domain\ValueObject\IntegerValueObject;
+use Src\Shared\Domain\ValueObject\StringValueObject;
 
-final class CandidatePhone extends IntegerValueObject
+final class CandidatePhone extends StringValueObject
 {
 }
