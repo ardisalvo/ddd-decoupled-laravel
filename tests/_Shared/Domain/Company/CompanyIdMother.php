@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Shared\Domain\Company;
+namespace Tests\_Shared\Domain\Company;
 
 use Src\JobPortal\_Shared\Domain\Company\ValueObjects\CompanyId;
-use Tests\Shared\Domain\UuidMother;
+use Tests\_Shared\Domain\UuidMother;
 
 final class CompanyIdMother
 {

@@ -3,7 +3,7 @@
 namespace Tests\JobPortal\Company\Application\Domain;
 
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyStatus;
-use Tests\Shared\Domain\RandomElementPicker;
+use Tests\_Shared\Domain\RandomElementPicker;
 
 final class CompanyStatusMother
 {

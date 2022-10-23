@@ -3,7 +3,7 @@
 namespace Tests\JobPortal\Offer\Application\Domain;
 
 use Src\JobPortal\Offer\Domain\ValueObjects\OfferStatus;
-use Tests\Shared\Domain\RandomElementPicker;
+use Tests\_Shared\Domain\RandomElementPicker;
 
 final class OfferStatusMother
 {

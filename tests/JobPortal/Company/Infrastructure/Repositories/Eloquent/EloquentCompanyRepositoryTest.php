@@ -15,7 +15,7 @@ use Tests\JobPortal\Company\Application\Domain\CompanyMother;
 use Tests\JobPortal\Company\Application\Domain\CompanyNameMother;
 use Tests\JobPortal\Company\Application\Domain\CompanySectorMother;
 use Tests\JobPortal\Company\Application\Domain\CompanyStatusMother;
-use Tests\Shared\Domain\Company\CompanyIdMother;
+use Tests\_Shared\Domain\Company\CompanyIdMother;
 use Tests\TestCase;
 
 class EloquentCompanyRepositoryTest extends TestCase

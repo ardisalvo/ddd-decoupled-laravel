@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Shared\Domain;
+namespace Tests\_Shared\Domain;
 
 use Faker\Factory;
 use Faker\Generator;

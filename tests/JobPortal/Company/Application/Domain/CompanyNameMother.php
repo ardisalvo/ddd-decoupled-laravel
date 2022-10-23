@@ -3,8 +3,8 @@
 namespace Tests\JobPortal\Company\Application\Domain;
 
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
-use Tests\Shared\Domain\RandomElementPicker;
-use Tests\Shared\Domain\UuidMother;
+use Tests\_Shared\Domain\RandomElementPicker;
+use Tests\_Shared\Domain\UuidMother;
 
 final class CompanyNameMother
 {

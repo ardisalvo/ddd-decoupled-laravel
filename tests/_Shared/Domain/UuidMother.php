@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Shared\Domain;
+namespace Tests\_Shared\Domain;
 
 final class UuidMother
 {

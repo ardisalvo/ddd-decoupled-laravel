@@ -5,7 +5,7 @@ namespace Tests\JobPortal\Company\Infrastructure\Repositories\File;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Src\JobPortal\Company\Infrastructure\Repositories\File\FileCompanyRepository;
 use Tests\JobPortal\Company\Application\Domain\CompanyMother;
-use Tests\Shared\Domain\Company\CompanyIdMother;
+use Tests\_Shared\Domain\Company\CompanyIdMother;
 use Tests\TestCase;
 
 class FileCompanyRepositoryTest_ extends TestCase

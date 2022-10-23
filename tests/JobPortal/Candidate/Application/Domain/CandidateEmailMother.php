@@ -3,7 +3,7 @@
 namespace Tests\JobPortal\Candidate\Application\Domain;
 
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateEmail;
-use Tests\Shared\Domain\MotherCreator;
+use Tests\_Shared\Domain\MotherCreator;
 
 final class CandidateEmailMother
 {

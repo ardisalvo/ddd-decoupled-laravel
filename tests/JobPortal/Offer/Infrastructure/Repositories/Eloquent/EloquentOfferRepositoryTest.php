@@ -24,7 +24,7 @@ use Tests\JobPortal\Offer\Application\Domain\OfferIdMother;
 use Tests\JobPortal\Offer\Application\Domain\OfferMother;
 use Tests\JobPortal\Offer\Application\Domain\OfferStatusMother;
 use Tests\JobPortal\Offer\Application\Domain\OfferTitleMother;
-use Tests\Shared\Domain\Company\CompanyIdMother;
+use Tests\_Shared\Domain\Company\CompanyIdMother;
 use Tests\TestCase;
 
 class EloquentOfferRepositoryTest extends TestCase

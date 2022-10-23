@@ -3,7 +3,7 @@
 namespace Tests\JobPortal\Offer\Application\Domain;
 
 use Src\JobPortal\_Shared\Domain\Offer\ValueObjects\OfferId;
-use Tests\Shared\Domain\UuidMother;
+use Tests\_Shared\Domain\UuidMother;
 
 final class OfferIdMother
 {

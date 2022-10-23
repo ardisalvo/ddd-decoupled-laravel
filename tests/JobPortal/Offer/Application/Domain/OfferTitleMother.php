@@ -3,7 +3,7 @@
 namespace Tests\JobPortal\Offer\Application\Domain;
 
 use Src\JobPortal\Offer\Domain\ValueObjects\OfferTitle;
-use Tests\Shared\Domain\MotherCreator;
+use Tests\_Shared\Domain\MotherCreator;
 
 final class OfferTitleMother
 {

@@ -3,7 +3,7 @@
 namespace Tests\JobPortal\Candidate\Application\Domain;
 
 use Src\JobPortal\_Shared\Domain\Candidate\ValueObjects\CandidateId;
-use Tests\Shared\Domain\UuidMother;
+use Tests\_Shared\Domain\UuidMother;
 
 final class CandidateIdMother
 {

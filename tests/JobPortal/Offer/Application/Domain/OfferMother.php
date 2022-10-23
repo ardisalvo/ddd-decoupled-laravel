@@ -9,7 +9,7 @@ use Src\JobPortal\Offer\Domain\Offer;
 use Src\JobPortal\Offer\Domain\ValueObjects\OfferDescription;
 use Src\JobPortal\Offer\Domain\ValueObjects\OfferStatus;
 use Src\JobPortal\Offer\Domain\ValueObjects\OfferTitle;
-use Tests\Shared\Domain\Company\CompanyIdMother;
+use Tests\_Shared\Domain\Company\CompanyIdMother;
 
 final class OfferMother
 {
