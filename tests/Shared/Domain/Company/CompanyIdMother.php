@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\JobPortal\Company\Application\Domain;
+namespace Tests\Shared\Domain\Company;
 
 use Src\JobPortal\_Shared\Domain\Company\ValueObjects\CompanyId;
 use Tests\Shared\Domain\UuidMother;

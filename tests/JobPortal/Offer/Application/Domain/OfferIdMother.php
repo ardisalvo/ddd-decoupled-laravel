@@ -2,20 +2,20 @@
 
 namespace Tests\JobPortal\Offer\Application\Domain;
 
-use Src\JobPortal\_Shared\Domain\Candidate\ValueObjects\CandidateId;
+use Src\JobPortal\_Shared\Domain\Offer\ValueObjects\OfferId;
 use Tests\Shared\Domain\UuidMother;
 
 final class OfferIdMother
 {
-    public static function create(CandidateId $value): CandidateId
+    public static function create(OfferId $value): OfferId
     {
         return $value;
     }
 
-    public static function random(): CandidateId
+    public static function random(): OfferId
     {
         return self::create(
-            new CandidateId(
+            new OfferId(
                 UuidMother::random()
             )
         );

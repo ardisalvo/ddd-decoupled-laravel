@@ -11,11 +11,11 @@ use Src\JobPortal\Company\Infrastructure\Controllers\Create\CompanyCreateRequest
 use Src\JobPortal\Company\Infrastructure\Controllers\Delete\CompanyDeleteByIdRequestValidation;
 use Src\JobPortal\Company\Infrastructure\Controllers\Search\ById\CompanySearchByIdRequestValidation;
 use Src\JobPortal\Company\Infrastructure\Repositories\Eloquent\EloquentCompanyRepository;
-use Tests\JobPortal\Company\Application\Domain\CompanyIdMother;
 use Tests\JobPortal\Company\Application\Domain\CompanyMother;
 use Tests\JobPortal\Company\Application\Domain\CompanyNameMother;
 use Tests\JobPortal\Company\Application\Domain\CompanySectorMother;
 use Tests\JobPortal\Company\Application\Domain\CompanyStatusMother;
+use Tests\Shared\Domain\Company\CompanyIdMother;
 use Tests\TestCase;
 
 class EloquentCompanyRepositoryTest extends TestCase

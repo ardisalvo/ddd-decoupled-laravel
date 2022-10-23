@@ -8,6 +8,7 @@ use Src\JobPortal\Company\Domain\Company;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyName;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanySector;
 use Src\JobPortal\Company\Domain\ValueObjects\CompanyStatus;
+use Tests\Shared\Domain\Company\CompanyIdMother;
 
 final class CompanyMother
 {

@@ -17,7 +17,7 @@ class OfferCreateRequestValidation extends FormRequest
             'title' => 'required|string',
             'description' => 'required|string',
             'company_id' => 'exists:companies,id|required|string',
-            'status' => 'required|string',
+            'status' => 'required|int',
         ];
     }
 
