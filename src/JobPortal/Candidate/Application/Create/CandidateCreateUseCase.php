@@ -16,16 +16,8 @@ class CandidateCreateUseCase
         $this->repository = $repository;
     }
 
-    public function __invoke(CandidateCreateRequest $request): Response
+    public function __invoke(Candidate $candidate): Response
     {
-        $candidate = new Candidate(
-            $request->id(),
-            $request->firstName(),
-            $request->lastName(),
-            $request->email(),
-            $request->phone(),
-        );
-
         $response = $this->repository->create($candidate);
 
         if (! $response) {

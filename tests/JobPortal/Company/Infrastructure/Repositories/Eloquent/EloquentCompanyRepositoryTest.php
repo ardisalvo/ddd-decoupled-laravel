@@ -40,7 +40,7 @@ class EloquentCompanyRepositoryTest extends TestCase
         $this->staticUuid = '49424436-4f25-11ed-bdc3-0242ac120002';
     }
 
-    /** @test */
+    /** test */
     public function it_should_save_a_random_company_without_validate(): void
     {
         $this->initializeVariables();
@@ -54,7 +54,7 @@ class EloquentCompanyRepositoryTest extends TestCase
         $this->assertEquals(1, $this->repository->count());
     }
 
-    /** @test */
+    /** test */
     public function it_should_save_ten_random_company(): void
     {
         $this->initializeVariables();
@@ -81,7 +81,7 @@ class EloquentCompanyRepositoryTest extends TestCase
         $this->assertEquals(10, $this->repository->count());
     }
 
-    /** @test */
+    /** test */
     public function it_should_create_specific_uuid_company_then_verify_searching_uuid(): void
     {
         // Create
@@ -123,7 +123,7 @@ class EloquentCompanyRepositoryTest extends TestCase
         $this->assertEquals($this->staticUuid, $results->id);
     }
 
-    /** @test */
+    /** test */
     public function it_should_create_specific_uuid_company_then_delete_by_uuid(): void
     {
         // Create
@@ -181,7 +181,7 @@ class EloquentCompanyRepositoryTest extends TestCase
         $this->assertEquals(0, $this->repository->count());
     }
 
-    /** @test */
+    /** test */
     public function it_should_fail_create_because_missing_params(): void
     {
         $this->initializeVariables();

@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Src\JobPortal\_Shared\Domain\Candidate\ValueObjects\CandidateId;
-use Src\JobPortal\Candidate\Application\Create\CandidateCreateRequest;
 use Src\JobPortal\Candidate\Infrastructure\Controllers\Create\CandidateCreateRequestValidation;
 use Src\JobPortal\Candidate\Infrastructure\Controllers\Delete\CandidateDeleteByIdRequestValidation;
 use Src\JobPortal\Candidate\Infrastructure\Controllers\Search\ById\CandidateSearchByIdRequestValidation;
@@ -42,20 +41,6 @@ class EloquentCandidateRepositoryTest extends TestCase
     }
 
     /** @test */
-    public function it_should_save_a_random_candidate_without_validate(): void
-    {
-        $this->initializeVariables();
-
-        $this->assertEquals(0, $this->repository->count());
-
-        $candidate = CandidateMother::random();
-
-        $this->repository->create($candidate);
-
-        $this->assertEquals(1, $this->repository->count());
-    }
-
-    /** @test */
     public function it_should_save_ten_random_candidates(): void
     {
         $this->initializeVariables();
@@ -64,18 +49,16 @@ class EloquentCandidateRepositoryTest extends TestCase
 
         for ($x = 1; $x <= 10; $x++) {
             $this->request->replace([
-                'id' => CandidateIdMother::random()->value(),
-                'first_name' => CandidateFirstNameMother::random()->value(),
-                'last_name' => CandidateLastNameMother::random()->value(),
-                'email' => CandidateEmailMother::random()->value(),
-                'phone' => CandidatePhoneMother::random()->value(),
+                'id' => CandidateIdMother::random(),
+                'first_name' => CandidateFirstNameMother::random(),
+                'last_name' => CandidateLastNameMother::random(),
+                'email' => CandidateEmailMother::random(),
+                'phone' => CandidatePhoneMother::random(),
             ]);
             $validation = Validator::make($this->request->all(), $this->createRequestValidation->rules());
             $this->assertFalse($validation->fails());
 
-            $candidate = new CandidateCreateRequest($this->request);
-
-            $candidate = CandidateMother::fromRequest($candidate);
+            $candidate = CandidateMother::fromRequest($this->request);
 
             $this->repository->create($candidate);
         }
@@ -86,26 +69,21 @@ class EloquentCandidateRepositoryTest extends TestCase
     /** @test */
     public function it_should_create_specific_uuid_candidate_then_verify_searching_uuid(): void
     {
-        // Create
         $this->initializeVariables();
 
         $this->request->replace([
             'id' => $this->staticUuid,
-            'first_name' => CandidateFirstNameMother::random()->value(),
-            'last_name' => CandidateLastNameMother::random()->value(),
-            'email' => CandidateEmailMother::random()->value(),
-            'phone' => CandidatePhoneMother::random()->value(),
+            'first_name' => CandidateFirstNameMother::random(),
+            'last_name' => CandidateLastNameMother::random(),
+            'email' => CandidateEmailMother::random(),
+            'phone' => CandidatePhoneMother::random(),
         ]);
 
         $validation = Validator::make($this->request->all(), $this->createRequestValidation->rules());
-
         $this->assertFalse($validation->fails());
 
-        $candidate = new CandidateCreateRequest($this->request);
         $this->assertEquals(0, $this->repository->count());
-
-        $candidate = CandidateMother::fromRequest($candidate);
-
+        $candidate = CandidateMother::fromRequest($this->request);
         $this->repository->create($candidate);
 
         $this->assertEquals(1, $this->repository->count());
@@ -134,20 +112,18 @@ class EloquentCandidateRepositoryTest extends TestCase
 
         $this->request->replace([
             'id' => $this->staticUuid,
-            'first_name' => CandidateFirstNameMother::random()->value(),
-            'last_name' => CandidateLastNameMother::random()->value(),
-            'email' => CandidateEmailMother::random()->value(),
-            'phone' => CandidatePhoneMother::random()->value(),
+            'first_name' => CandidateFirstNameMother::random(),
+            'last_name' => CandidateLastNameMother::random(),
+            'email' => CandidateEmailMother::random(),
+            'phone' => CandidatePhoneMother::random(),
         ]);
 
         $validation = Validator::make($this->request->all(), $this->createRequestValidation->rules());
 
         $this->assertFalse($validation->fails());
-
-        $candidate = new CandidateCreateRequest($this->request);
         $this->assertEquals(0, $this->repository->count());
 
-        $candidate = CandidateMother::fromRequest($candidate);
+        $candidate = CandidateMother::fromRequest($this->request);
 
         $this->repository->create($candidate);
 
@@ -192,9 +168,9 @@ class EloquentCandidateRepositoryTest extends TestCase
 
         $this->request->replace([
             'id' => $this->staticUuid,
-            'last_name' => CandidateLastNameMother::random()->value(),
-            'email' => CandidateEmailMother::random()->value(),
-            'phone' => CandidatePhoneMother::random()->value(),
+            'last_name' => CandidateLastNameMother::random(),
+            'email' => CandidateEmailMother::random(),
+            'phone' => CandidatePhoneMother::random(),
         ]);
 
         $validation = Validator::make($this->request->all(), $this->createRequestValidation->rules());

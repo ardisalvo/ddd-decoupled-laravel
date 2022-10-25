@@ -7,17 +7,13 @@ use Tests\_Shared\Domain\MotherCreator;
 
 final class CandidatePhoneMother
 {
-    public static function create(CandidatePhone $value): CandidatePhone
+    public static function create(string $value): string
     {
         return $value;
     }
 
-    public static function random(): CandidatePhone
+    public static function random(): string
     {
-        return self::create(
-            new CandidatePhone(
-                MotherCreator::random()->e164PhoneNumber()
-            )
-        );
+        return self::create(MotherCreator::random()->e164PhoneNumber());
     }
 }

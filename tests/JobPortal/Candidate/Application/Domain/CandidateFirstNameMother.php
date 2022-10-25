@@ -7,15 +7,13 @@ use Tests\_Shared\Domain\MotherCreator;
 
 final class CandidateFirstNameMother
 {
-    public static function create(CandidateFirstName $value): CandidateFirstName
+    public static function create(string $value): string
     {
         return $value;
     }
 
-    public static function random(): CandidateFirstName
+    public static function random(): string
     {
-        return self::create(
-            new CandidateFirstName(MotherCreator::random()->firstName())
-        );
+        return self::create(MotherCreator::random()->firstName());
     }
 }

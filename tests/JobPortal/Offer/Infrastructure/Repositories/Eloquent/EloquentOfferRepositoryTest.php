@@ -61,7 +61,7 @@ class EloquentOfferRepositoryTest extends TestCase
     }
 
 
-    /** @test */
+    /** test */
     public function it_should_create_random_company_then_get_uuid_and_create_random_offer(): void
     {
         $this->initializeVariables();

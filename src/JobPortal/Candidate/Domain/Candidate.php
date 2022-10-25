@@ -7,35 +7,36 @@ use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateEmail;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateFirstName;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidateLastName;
 use Src\JobPortal\Candidate\Domain\ValueObjects\CandidatePhone;
+use Src\Shared\Domain\ValueObject\Uuid;
 
 final class Candidate
 {
-    private CandidateId $id;
-    private CandidateFirstName $firstName;
-    private CandidateLastName $lastName;
-    private CandidateEmail $email;
-    private CandidatePhone $phone;
+
+
+    private string|null|CandidateId $id;
+    private string|CandidateFirstName $firstName;
+    private string|CandidateLastName $lastName;
+    private string|CandidateEmail $email;
+    private string|CandidatePhone $phone;
 
     public function __construct(
-        CandidateId $id,
-        CandidateFirstName $firstName,
-        CandidateLastName $lastName,
-        CandidateEmail $email,
-        CandidatePhone $phone
+        string|null $id,
+        string $firstName,
+        string $lastName,
+        string $email,
+        string $phone
     ) {
         $this->id = $id;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->email = $email;
         $this->phone = $phone;
+
+
+        $this->fromPrimitives();
     }
 
     public function id(): CandidateId
-    {
-        return $this->id;
-    }
-
-    public function getId(): CandidateId
     {
         return $this->id;
     }
@@ -58,5 +59,16 @@ final class Candidate
     public function phone(): CandidatePhone
     {
         return $this->phone;
+    }
+
+    public function fromPrimitives(): void
+    {
+        $id = ($this->id !== null) ? $this->id : Uuid::random()->value();
+
+        $this->id = new CandidateId($id);
+        $this->firstName = new CandidateFirstName($this->firstName);
+        $this->lastName = new CandidateLastName($this->lastName);
+        $this->email = new CandidateEmail($this->email);
+        $this->phone = new CandidatePhone($this->phone);
     }
 }

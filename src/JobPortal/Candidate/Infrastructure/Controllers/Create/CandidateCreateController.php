@@ -3,8 +3,8 @@
 namespace Src\JobPortal\Candidate\Infrastructure\Controllers\Create;
 
 use Illuminate\Http\Response;
-use Src\JobPortal\Candidate\Application\Create\CandidateCreateRequest;
 use Src\JobPortal\Candidate\Application\Create\CandidateCreateUseCase;
+use Src\JobPortal\Candidate\Domain\Candidate;
 
 final class CandidateCreateController
 {
@@ -17,8 +17,14 @@ final class CandidateCreateController
 
     public function __invoke(CandidateCreateRequestValidation $request): Response
     {
-        $request = new CandidateCreateRequest($request);
+        $candidate = new Candidate(
+            $request->get('id'),
+            $request->get('first_name'),
+            $request->get('last_name'),
+            $request->get('email'),
+            $request->get('phone')
+        );
 
-        return $this->useCase->__invoke($request);
+        return $this->useCase->__invoke($candidate);
     }
 }
