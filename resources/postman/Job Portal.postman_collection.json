@@ -1,0 +1,361 @@
+{
+	"info": {
+		"_postman_id": "5d5fbac1-abc5-4f7d-a03d-cfa9fe69e5c8",
+		"name": "Job Portal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8834811"
+	},
+	"item": [
+		{
+			"name": "Candidates",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/job-portal/candidates/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"job-portal",
+								"candidates",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "Clint",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "Barton",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "clint_barton@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "622622622",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/job-portal/candidates/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"job-portal",
+								"candidates",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search by ID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "ee3e14cb-59a4-48a7-8a95-3778268a8013",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/job-portal/candidates/search-by-id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"job-portal",
+								"candidates",
+								"search-by-id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search by Email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "clint_barton@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/job-portal/candidates/search-by-email",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"job-portal",
+								"candidates",
+								"search-by-email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by ID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "ee3e14cb-59a4-48a7-8a95-3778268a8013",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/job-portal/candidates/delete-by-id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"job-portal",
+								"candidates",
+								"delete-by-id"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Companies",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/job-portal/companies/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"job-portal",
+								"companies",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Offers",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/job-portal/offers/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"job-portal",
+								"offers",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search by company ID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "company_id",
+									"value": "2715713b-47c1-39a4-bc1e-d8a85a0781fb",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/job-portal/offers/search-by-company-id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"job-portal",
+								"offers",
+								"search-by-company-id"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Applications",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/job-portal/candidates/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"job-portal",
+								"candidates",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "candidate_id",
+									"value": "ec6df1ca-32ae-4c35-83de-07fbcbd0d376",
+									"type": "text"
+								},
+								{
+									"key": "annotations",
+									"value": "Great CV.",
+									"type": "text"
+								},
+								{
+									"key": "offer_id",
+									"value": "05752a98-69bb-3026-809b-bc1c83b421a0",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/job-portal/applications/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"job-portal",
+								"applications",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search by candidate ID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "candidate_id",
+									"value": "4d40a475-cc32-336c-9b41-93531717f6c6",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/job-portal/applications/search-by-candidate-id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"job-portal",
+								"applications",
+								"search-by-candidate-id"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
